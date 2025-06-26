@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-public class CharacterMovement : MonoBehaviour
+public class AgentMovement : MonoBehaviour
 {
     [SerializeField]
     private LayerMask mask;
@@ -12,7 +12,6 @@ public class CharacterMovement : MonoBehaviour
     private Vector2 velocity;
     private Vector2 smoothDeltaPosition;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         m_Animator = GetComponent<Animator>();
@@ -35,7 +34,6 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         SynchronizeAnimatorAndAgent();
-        HandleInput();
     }
 
     private void SynchronizeAnimatorAndAgent()
@@ -77,6 +75,8 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+
+    /*
     private void HandleInput()
     {
         if(Application.isFocused && Mouse.current.leftButton.wasReleasedThisFrame)
@@ -89,4 +89,5 @@ public class CharacterMovement : MonoBehaviour
             }
         }
     }
+    */
 }

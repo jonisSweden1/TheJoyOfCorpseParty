@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class EnemyIdleState : EnemyBaseState
+{
+    private float _time = 0f;
+    private float _idleTime = 0f;
+
+    public override void EnterState(EnemyStateManager stateManager)
+    {
+        _idleTime = stateManager.m_TimeToRoam;
+    }
+
+    public override void ExitState(EnemyStateManager stateManager)
+    {
+        
+    }
+
+    public override void OnTriggerEnterState(Collider other, EnemyStateManager stateManager)
+    {
+        
+    }
+
+    public override void UpdateState(EnemyStateManager stateManager)
+    {
+        _time += Time.deltaTime;
+
+        if(_time >= _idleTime)
+        {
+            stateManager.SwitchState(stateManager.roamState);
+        }
+    }
+}
