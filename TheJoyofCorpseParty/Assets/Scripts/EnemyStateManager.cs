@@ -30,6 +30,12 @@ public class EnemyStateManager : MonoBehaviour
 
     public float m_TimeToRoam { get { return RandomizeTimeToRoam(); } }
 
+    [Header("List destinations")]
+    [SerializeField]
+    private Transform[] m_Destinations;
+
+    public Transform[] Destinations {  get { return m_Destinations; } }
+
     void Awake()
     {
         mAgent = GetComponent<NavMeshAgent>();

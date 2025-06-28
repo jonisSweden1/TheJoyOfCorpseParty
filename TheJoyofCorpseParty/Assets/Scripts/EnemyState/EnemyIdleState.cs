@@ -12,7 +12,7 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void ExitState(EnemyStateManager stateManager)
     {
-        
+        _time = 0f;
     }
 
     public override void OnTriggerEnterState(Collider other, EnemyStateManager stateManager)
@@ -26,6 +26,12 @@ public class EnemyIdleState : EnemyBaseState
 
         if(_time >= _idleTime)
         {
+            if(stateManager.Destinations == null)
+            {
+                Debug.LogError("There is no destination, so it will not start roaming");
+                return;
+            }
+
             stateManager.SwitchState(stateManager.roamState);
         }
     }
