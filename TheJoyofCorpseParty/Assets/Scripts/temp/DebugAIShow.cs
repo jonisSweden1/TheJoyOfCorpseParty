@@ -6,6 +6,8 @@ public class DebugAIShow : MonoBehaviour
     NavMeshAgent agent;
     LineRenderer lineRenderer;
 
+    private bool visualBool;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -18,7 +20,21 @@ public class DebugAIShow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(agent.hasPath)
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if (visualBool)
+            {
+                lineRenderer.enabled = false;
+                visualBool = false;
+            }
+            else
+            {
+                lineRenderer.enabled = true;
+                visualBool = true;
+            }
+        }
+
+        if(agent.hasPath && visualBool)
         {
             UpdatePath();
         }

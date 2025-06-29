@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mAgent: {fileID: 0}
-  m_WalkSpeed: 7
+  m_WalkSpeed: 3
   m_RunSpeed: 10
   m_WalkAcceleration: 10
   m_RunAcceleration: 0

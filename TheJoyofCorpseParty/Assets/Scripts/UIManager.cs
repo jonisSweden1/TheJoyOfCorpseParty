@@ -38,7 +38,9 @@ public class UIManager : MonoBehaviour
         {
             m_Menus[_currentMenuIndex].SetActive(false);
             m_Menus[_previousMenuIndex].SetActive(true);
+            int tempPrevious = _previousMenuIndex;
             _previousMenuIndex = _currentMenuIndex;
+            _currentMenuIndex = tempPrevious;
         }
     }
 }
