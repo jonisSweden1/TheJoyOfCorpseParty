@@ -8,7 +8,11 @@ public class EnemyRoamState : EnemyBaseState
         stateManager.mAgent.speed = stateManager.m_WalkSpeed;
         stateManager.mAgent.acceleration = stateManager.m_WalkAcceleration;
 
+        Debug.Log(stateManager.Destinations.Length - 1);
+
         int rndIndex = Random.Range(0, stateManager.Destinations.Length - 1);
+
+        Debug.Log(rndIndex);
 
         stateManager.mAgent.SetDestination(stateManager.Destinations[rndIndex].position);
     }
