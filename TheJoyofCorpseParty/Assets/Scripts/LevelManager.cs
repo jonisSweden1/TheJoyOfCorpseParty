@@ -3,16 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static LevelManager Instance { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
     {
-        
+        if (Instance == null)
+            Instance = this;
+        else if (Instance != this)
+            Destroy(this);
+
+        DontDestroyOnLoad(this);
     }
 
     public void LoadScene(string sceneName)

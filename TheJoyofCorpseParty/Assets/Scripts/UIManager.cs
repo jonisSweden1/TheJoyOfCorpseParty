@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+
         if (m_Menus != null)
         {
             m_Menus[_defaultMenuIndex].SetActive(true);
@@ -42,5 +44,14 @@ public class UIManager : MonoBehaviour
             _previousMenuIndex = _currentMenuIndex;
             _currentMenuIndex = tempPrevious;
         }
+    }
+
+    public void CloseApplication()
+    {
+        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }
