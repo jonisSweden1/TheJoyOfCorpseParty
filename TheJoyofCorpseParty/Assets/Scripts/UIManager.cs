@@ -13,8 +13,6 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-
         if (m_Menus != null)
         {
             m_Menus[_defaultMenuIndex].SetActive(true);
