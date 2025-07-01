@@ -7,33 +7,31 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     float m_MoveSpeed;
 
-    [SerializeField]
-    private float walkSpeed, sprintSpeed;
-
-    [SerializeField]
-    private float m_GroundDrag;
+    [SerializeField] private float walkSpeed, sprintSpeed;
+    [SerializeField] private float m_GroundDrag;
 
     [Header("Crounching")]
 
-    [SerializeField]
-    private float m_CrouchSpeed;
+    [SerializeField] private float m_CrouchSpeed;
 
-    [SerializeField]
-    private float crouchYScale;
+    [SerializeField] private float crouchYScale;
     float startYScale;
-    
+
+    [Header("Step Climb")]
+    [SerializeField] GameObject stepRayUpper;
+    [SerializeField] GameObject stepRayLower;
+
+    [SerializeField] float stepHeight = 0.3f;
+    [SerializeField] float stepSmooth = 0.1f;
+
     [Header("Keybinds")]
-    [SerializeField]
-    private InputActionReference m_MoveInputReference;
+    [SerializeField] private InputActionReference m_MoveInputReference;
 
-    [SerializeField]
-    private InputActionReference m_SprintKey;
+    [SerializeField] private InputActionReference m_SprintKey;
 
-    [SerializeField]
-    private InputActionReference m_CrouchKey;
+    [SerializeField] private InputActionReference m_CrouchKey;
 
-    [SerializeField]
-    private Transform m_Orientation;
+    [SerializeField] private Transform m_Orientation;
 
     float horizontalInput, verticalInput;
 
@@ -52,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         walking, sprinting, crouching
     }
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -60,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
         groundCheck = GetComponent<PlayerGroundCheck>();
         playerSlopeHandler = GetComponent<PlayerSlopeHandler>();
 
+        stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
+    }
+
+    private void Start()
+    {
         startYScale = transform.localScale.y;
 
         m_CrouchKey.action.performed += Crouch_performed;
@@ -92,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        StepClimb();
     }
 
     private void GetInputCrouch()
@@ -178,5 +182,40 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 GetSlopeMoveDirection()
     {
         return Vector3.ProjectOnPlane(moveDirection, playerSlopeHandler.SlopeHit.normal).normalized;
+    }
+
+    private void StepClimb()
+    {
+        RaycastHit hitLower;
+        if(Physics.Raycast(stepRayLower.transform.position, m_Orientation.TransformDirection(Vector3.forward), out hitLower, 0.1f))
+        {
+            RaycastHit hitUpper;
+            if(Physics.Raycast(stepRayUpper.transform.position, m_Orientation.TransformDirection(Vector3.forward), out hitUpper, 0.3f))
+            {
+                rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            }
+        }
+
+        RaycastHit hitLower45;
+        if (Physics.Raycast(stepRayLower.transform.position, m_Orientation.TransformDirection(1.5f, 0, 1), out hitLower45, 0.1f))
+        {
+            RaycastHit hitUpper45;
+            if (Physics.Raycast(stepRayUpper.transform.position, m_Orientation.TransformDirection(1.5f, 0, 1), out hitUpper45, 0.3f))
+            {
+                rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            }
+        }
+
+        RaycastHit hitLowerMinus45;
+        if (Physics.Raycast(stepRayLower.transform.position, m_Orientation.TransformDirection(-1.5f, 0, 1), out hitLowerMinus45, 0.1f))
+        {
+            RaycastHit hitUpperMinus45;
+            if (Physics.Raycast(stepRayUpper.transform.position, m_Orientation.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.3f))
+            {
+                rb.position -= new Vector3(0f, -stepSmooth, 0f);
+            }
+        }
+
+
     }
 }

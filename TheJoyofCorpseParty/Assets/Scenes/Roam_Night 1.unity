@@ -464,6 +464,10 @@ MonoBehaviour:
   m_GroundDrag: 5
   m_CrouchSpeed: 2
   crouchYScale: 0.5
+  stepRayUpper: {fileID: 98972709}
+  stepRayLower: {fileID: 1823789803}
+  stepHeight: 0.4
+  stepSmooth: 0.1
   m_MoveInputReference: {fileID: -1680190386980627800, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   m_SprintKey: {fileID: -7471211009204490832, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   m_CrouchKey: {fileID: 7040659881675835329, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
