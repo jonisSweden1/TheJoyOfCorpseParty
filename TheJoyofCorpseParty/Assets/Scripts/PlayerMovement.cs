@@ -145,6 +145,9 @@ public class PlayerMovement : MonoBehaviour
         if(playerSlopeHandler.OnSlope())
         {
             rb.AddForce(GetSlopeMoveDirection() * m_MoveSpeed * 20f, ForceMode.Force);
+
+            if (rb.linearVelocity.y > 0)
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
         }
 
         rb.AddForce(moveDirection.normalized * m_MoveSpeed * 10f, ForceMode.Force);
@@ -154,12 +157,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
-
-        if(flatVel.magnitude > m_MoveSpeed)
+        if(playerSlopeHandler.OnSlope())
         {
-            Vector3 limitedVel = flatVel.normalized * m_MoveSpeed;
-            rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
+            if (rb.linearVelocity.magnitude > m_MoveSpeed)
+                rb.linearVelocity = rb.linearVelocity.normalized * m_MoveSpeed;
+        }
+
+        else
+        {
+            Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
+
+            if (flatVel.magnitude > m_MoveSpeed)
+            {
+                Vector3 limitedVel = flatVel.normalized * m_MoveSpeed;
+                rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
+            }
         }
     }
 
