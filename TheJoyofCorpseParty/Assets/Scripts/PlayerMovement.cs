@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
     PlayerGroundCheck groundCheck;
 
+    PlayerSlopeHandler playerSlopeHandler;
+
     private MovementState state;
 
     public enum MovementState
@@ -56,8 +58,22 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         groundCheck = GetComponent<PlayerGroundCheck>();
+        playerSlopeHandler = GetComponent<PlayerSlopeHandler>();
 
         startYScale = transform.localScale.y;
+
+        m_CrouchKey.action.performed += Crouch_performed;
+        m_CrouchKey.action.canceled += Crouch_canceled;
+    }
+
+    private void Crouch_canceled(InputAction.CallbackContext obj)
+    {
+        GetInputCrouch();
+    }
+
+    private void Crouch_performed(InputAction.CallbackContext obj)
+    {
+        GetInputCrouch();
     }
 
     private void Update()
@@ -78,13 +94,9 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
-    private void GetInput()
+    private void GetInputCrouch()
     {
-        Vector2 input = m_MoveInputReference.action.ReadValue<Vector2>();
-        horizontalInput = input.x;
-        verticalInput = input.y;
-
-        if(m_CrouchKey.action.IsPressed())
+        if (m_CrouchKey.action.IsPressed())
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
             rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
@@ -93,6 +105,13 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
+    }
+
+    private void GetInput()
+    {
+        Vector2 input = m_MoveInputReference.action.ReadValue<Vector2>();
+        horizontalInput = input.x;
+        verticalInput = input.y;
     }
 
     private void StateHandler()
@@ -105,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Mode - Sprinting
-        if(groundCheck.Grounded && m_SprintKey.action.IsPressed())
+        else if(groundCheck.Grounded && m_SprintKey.action.IsPressed())
         {
             state = MovementState.sprinting;
             m_MoveSpeed = sprintSpeed;
@@ -123,7 +142,14 @@ public class PlayerMovement : MonoBehaviour
     {
         moveDirection = m_Orientation.forward * verticalInput + m_Orientation.right * horizontalInput;
 
+        if(playerSlopeHandler.OnSlope())
+        {
+            rb.AddForce(GetSlopeMoveDirection() * m_MoveSpeed * 20f, ForceMode.Force);
+        }
+
         rb.AddForce(moveDirection.normalized * m_MoveSpeed * 10f, ForceMode.Force);
+
+        rb.useGravity = !playerSlopeHandler.OnSlope();
     }
 
     private void SpeedControl()
@@ -135,5 +161,10 @@ public class PlayerMovement : MonoBehaviour
             Vector3 limitedVel = flatVel.normalized * m_MoveSpeed;
             rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
         }
+    }
+
+    private Vector3 GetSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDirection, playerSlopeHandler.SlopeHit.normal).normalized;
     }
 }
