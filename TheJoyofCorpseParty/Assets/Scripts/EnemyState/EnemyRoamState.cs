@@ -7,8 +7,8 @@ public class EnemyRoamState : EnemyBaseState
 
     public override void EnterState(EnemyStateManager stateManager)
     {
-        stateManager.mAgent.speed = stateManager.m_WalkSpeed;
-        stateManager.mAgent.acceleration = stateManager.m_WalkAcceleration;
+        stateManager.m_Agent.speed = stateManager.m_WalkSpeed;
+        stateManager.m_Agent.acceleration = stateManager.m_WalkAcceleration;
 
         Debug.Log(stateManager.Destinations.Length - 1);
 
@@ -28,7 +28,7 @@ public class EnemyRoamState : EnemyBaseState
 
         Debug.Log(rndIndex);
 
-        stateManager.mAgent.SetDestination(stateManager.Destinations[rndIndex].position);
+        stateManager.m_Agent.SetDestination(stateManager.Destinations[rndIndex].position);
 
         previousDestinationIndex = rndIndex;
     }
@@ -45,7 +45,7 @@ public class EnemyRoamState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager stateManager)
     {
-        if(stateManager.mAgent.pathStatus == NavMeshPathStatus.PathComplete && stateManager.mAgent.remainingDistance <= stateManager.mAgent.stoppingDistance)
+        if(stateManager.m_Agent.pathStatus == NavMeshPathStatus.PathComplete && stateManager.m_Agent.remainingDistance <= stateManager.m_Agent.stoppingDistance)
         {
             stateManager.SwitchState(stateManager.idleState);
         }

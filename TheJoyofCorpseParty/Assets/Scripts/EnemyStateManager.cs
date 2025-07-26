@@ -1,15 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
 public class EnemyStateManager : MonoBehaviour
 {
     [HideInInspector]
-    public NavMeshAgent mAgent;
+    public NavMeshAgent m_Agent;
+
+    private EnemyDetectionSystem m_Enemy_Detection_System;
 
     public EnemyIdleState idleState;
     public EnemyRoamState roamState;
+    public EnemyChaseState chaseState;
 
     EnemyBaseState _currentState;
 
@@ -43,7 +45,8 @@ public class EnemyStateManager : MonoBehaviour
 
     void Awake()
     {
-        mAgent = GetComponent<NavMeshAgent>();
+        m_Agent = GetComponent<NavMeshAgent>();
+        m_Enemy_Detection_System = GetComponent<EnemyDetectionSystem>();
 
         idleState = new EnemyIdleState();
         roamState = new EnemyRoamState();
@@ -75,6 +78,11 @@ public class EnemyStateManager : MonoBehaviour
         {
             Debug.LogError("Max time to roam is lower than min which can cause problems");
         }
+    }
+
+    private void OnEnable()
+    {
+        m_Enemy_Detection_System.onDetected += () => SwitchState(chaseState);
     }
 
     // Update is called once per frame

@@ -315,6 +315,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       insertIndex: -1
       addedObject: {fileID: 422969641722896615}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8870776960206573192}
   m_SourcePrefab: {fileID: 100100000, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
 --- !u!4 &421540534323454632 stripped
 Transform:
@@ -375,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764014d0d67aae8449d1f7b57814ba90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAgent: {fileID: 0}
+  m_Agent: {fileID: 0}
   m_WalkSpeed: 3
   m_RunSpeed: 10
   m_WalkAcceleration: 10
@@ -405,3 +408,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.9064564, z: 1}
   m_Center: {x: 0, y: 0.947656, z: 0}
+--- !u!114 &8870776960206573192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189674550115004031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2dc5db28f66f240a58845f6e4b5787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 72
+  maxDistance: 10
