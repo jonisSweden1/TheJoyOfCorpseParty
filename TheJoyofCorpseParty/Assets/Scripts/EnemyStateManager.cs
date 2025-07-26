@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class EnemyStateManager : MonoBehaviour
 {
@@ -34,7 +36,10 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField]
     private Transform[] m_Destinations;
 
-    public Transform[] Destinations {  get { return m_Destinations; } }
+    [SerializeField]
+    private Transform m_RootListDestinations;
+
+    public Transform[] Destinations { get { return m_Destinations; } }
 
     void Awake()
     {
@@ -42,6 +47,23 @@ public class EnemyStateManager : MonoBehaviour
 
         idleState = new EnemyIdleState();
         roamState = new EnemyRoamState();
+
+        if (m_RootListDestinations != null)
+        {
+            m_Destinations = GetAllDestinations();
+        }
+    }
+
+    private Transform[] GetAllDestinations()
+    {
+        List<Transform> destinations = new List<Transform>();
+
+        foreach(Transform t in m_RootListDestinations)
+        {
+            destinations.Add(t);
+        }
+
+        return destinations.ToArray();
     }
 
     private void Start()

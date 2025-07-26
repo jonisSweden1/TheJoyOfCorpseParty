@@ -3,6 +3,8 @@ using UnityEngine.AI;
 
 public class EnemyRoamState : EnemyBaseState
 {
+    int previousDestinationIndex = -1;
+
     public override void EnterState(EnemyStateManager stateManager)
     {
         stateManager.mAgent.speed = stateManager.m_WalkSpeed;
@@ -12,9 +14,23 @@ public class EnemyRoamState : EnemyBaseState
 
         int rndIndex = Random.Range(0, stateManager.Destinations.Length - 1);
 
+        if(previousDestinationIndex == rndIndex && previousDestinationIndex != -1)
+        {
+            if(rndIndex > stateManager.Destinations.Length - 1)
+            {
+                rndIndex--;
+            }
+            else
+            {
+                rndIndex++;
+            }
+        }
+
         Debug.Log(rndIndex);
 
         stateManager.mAgent.SetDestination(stateManager.Destinations[rndIndex].position);
+
+        previousDestinationIndex = rndIndex;
     }
 
     public override void ExitState(EnemyStateManager stateManager)

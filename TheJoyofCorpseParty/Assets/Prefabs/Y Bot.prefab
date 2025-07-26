@@ -382,16 +382,8 @@ MonoBehaviour:
   m_RunAcceleration: 0
   m_MinTimeToRoamToNextLocation: 1.8
   m_MaxTimeToRoamToNextLocation: 10
-  m_Destinations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_Destinations: []
+  m_RootListDestinations: {fileID: 0}
 --- !u!65 &422969641722896615
 BoxCollider:
   m_ObjectHideFlags: 0
