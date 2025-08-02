@@ -14095,7 +14095,7 @@ GameObject:
   - component: {fileID: 578308421}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25769,6 +25769,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8870776960206573192, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
+      propertyPath: fov
+      value: 2.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870776960206573192, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 578308416}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

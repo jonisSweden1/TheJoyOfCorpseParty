@@ -3,7 +3,14 @@ using UnityEngine;
 
 public class EnemyDetectionSystem : MonoBehaviour
 {
+    public float fovSize;
+
+    public float fovRange;
+
     public event Action onDetected;
+
+    [SerializeField]
+    private Transform _player;
 
     [SerializeField]
     LayerMask obstacleMask;
@@ -25,11 +32,16 @@ public class EnemyDetectionSystem : MonoBehaviour
 
     void CheckPlayer()
     {
+        Vector3 directionCalculation = _player.position - transform.position;
+
+        Debug.Log(directionCalculation);
+
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, maxDistance, obstacleMask))
+        if (Physics.Raycast(transform.position, directionCalculation, out hit, maxDistance, obstacleMask))
         {
             if(hit.collider.tag == "Player")
             {
+                Debug.Log("Player found");
                 onDetected.Invoke();
             }
         }
