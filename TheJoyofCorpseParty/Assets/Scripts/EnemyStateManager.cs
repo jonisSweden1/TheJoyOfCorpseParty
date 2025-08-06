@@ -2,15 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(AgentMovement))]
+[RequireComponent(typeof(EnemyDetectionSystem))]
 public class EnemyStateManager : MonoBehaviour
 {
     [HideInInspector]
     public NavMeshAgent m_Agent;
 
-    private EnemyDetectionSystem m_Enemy_Detection_System;
+    public EnemyDetectionSystem m_Enemy_Detection_System {  get; private set; }
 
     public EnemyIdleState idleState;
     public EnemyRoamState roamState;
+    public EnemySeekState seekState;
     public EnemyChaseState chaseState;
 
     EnemyBaseState _currentState;
@@ -34,6 +37,10 @@ public class EnemyStateManager : MonoBehaviour
 
     public float m_TimeToRoam { get { return RandomizeTimeToRoam(); } }
 
+    [Header("Exposure time (s)")]
+    [Tooltip("Write it in seconds")]
+    public float m_ExposureTime;
+
     [Header("List destinations")]
     [SerializeField]
     private Transform[] m_Destinations;
@@ -50,6 +57,8 @@ public class EnemyStateManager : MonoBehaviour
 
         idleState = new EnemyIdleState();
         roamState = new EnemyRoamState();
+        seekState = new EnemySeekState();
+        chaseState = new EnemyChaseState();
 
         if (m_RootListDestinations != null)
         {
@@ -80,10 +89,25 @@ public class EnemyStateManager : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        m_Enemy_Detection_System.m_OnDetected += TriggerSeek;
+    }
+
+    void OnDisable()
+    {
+        m_Enemy_Detection_System.m_OnDetected -= TriggerSeek;
+    }
+
     // Update is called once per frame
     void Update()
     {
         _currentState.UpdateState(this);
+    }
+
+    private void TriggerSeek()
+    {
+        SwitchState(seekState);
     }
 
     private float RandomizeTimeToRoam()

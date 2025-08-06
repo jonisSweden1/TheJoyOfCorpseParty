@@ -49,8 +49,5 @@ public class EnemyRoamState : EnemyBaseState
         {
             stateManager.SwitchState(stateManager.idleState);
         }
-
-        // Update 0.2.0 TODO: Check area if the player is on sight.
-        // Make it stop and wait when it detects the player, and then switch the state into "Chase"
     }
 }

@@ -4,7 +4,7 @@ public class EnemyChaseState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager stateManager)
     {
-        
+        Debug.Log("CHASE!!!");
     }
 
     public override void ExitState(EnemyStateManager stateManager)

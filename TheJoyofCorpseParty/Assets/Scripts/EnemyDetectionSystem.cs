@@ -15,6 +15,8 @@ public class EnemyDetectionSystem : MonoBehaviour
 
     public bool CanSeePlayer { get; private set; } = false;
 
+    public event Action m_OnDetected;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,7 +49,13 @@ public class EnemyDetectionSystem : MonoBehaviour
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask))
-                    CanSeePlayer = true;
+                {
+                    if(CanSeePlayer == false)
+                    {
+                        m_OnDetected.Invoke();
+                        CanSeePlayer = true;
+                    }
+                }
                 else
                     CanSeePlayer = false;
             }
