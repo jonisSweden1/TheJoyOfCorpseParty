@@ -420,10 +420,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2dc5db28f66f240a58845f6e4b5787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fovSize: 0
-  fovRange: 0
-  _player: {fileID: 0}
+  radius: 3
+  angle: 90
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 8
   obstacleMask:
     serializedVersion: 2
     m_Bits: 64
-  maxDistance: 10

@@ -80,11 +80,6 @@ public class EnemyStateManager : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        m_Enemy_Detection_System.onDetected += () => SwitchState(chaseState);
-    }
-
     // Update is called once per frame
     void Update()
     {
