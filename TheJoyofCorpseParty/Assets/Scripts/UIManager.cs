@@ -44,6 +44,12 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ForceMenu(int index)
+    {
+        m_Menus[_currentMenuIndex].SetActive(false);
+        m_Menus[index].SetActive(true);
+    }
+
     public void CloseApplication()
     {
         Application.Quit();

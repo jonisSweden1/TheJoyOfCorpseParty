@@ -3,8 +3,14 @@ using UnityEngine;
 public class EnemySeekState : EnemyBaseState
 {
     private float time = 0;
+    private float savedTime = 0;
     public override void EnterState(EnemyStateManager stateManager)
     {
+        if(savedTime > 0)
+        {
+            time = savedTime;
+        }
+
         stateManager.m_Agent.ResetPath();
 
         Debug.Log("Seeking");
@@ -27,7 +33,10 @@ public class EnemySeekState : EnemyBaseState
             time += Time.deltaTime;
 
             if (time >= stateManager.m_ExposureTime)
+            {
+                savedTime = time;
                 stateManager.SwitchState(stateManager.chaseState);
+            }
         }
         else if(time > 0)
         {
@@ -35,6 +44,7 @@ public class EnemySeekState : EnemyBaseState
         }
         else
         {
+            savedTime = 0;
             stateManager.SwitchState(stateManager.idleState);
         }
     }
