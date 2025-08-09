@@ -567,14 +567,24 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This is a demonstration for showing off how the NavMeshAgent roams around
-    with obstacles (i.e. stairs and tight spaces). With the feature of turning on
-    and off visualization to show how the AI behaves. There are spheres which are
-    destinations to where AI roams to, and also visualization for how AI goes to.
-    To toggle visualization, press Spacebar. If you want to escape the test, you
-    can press escape which brings you back to the main menu. This is essentially
-    to give feedback with our customers on our first prototype AI for a "certain
-    game..." '
+  m_text: 'This is a continuation from the navigation test. A demonstration of enemy
+    detecting and chasing the player while patroling. The purpose of this is to give
+    feedback and adjustments to continue developing forward. As a regard for this,
+    I will be doing something "big", something that will give players to enjoy the
+    experience of a horror and unnerving experience. I can''t really explain what
+    it is yet, as I planned to build up the anticipation to the consumers of what
+    will be. But I can tell you that it''s going to be horror game which includes
+    stories, but you''ll have to wait and see in further future.
+
+
+    Regardless,
+    this is a test for the users to give feedback on. You just try to hide from the
+    blue guy. There are hiding spots (e.g. closets and beds), but he notices you
+    around 1 second and starts running. So best to hide within his blind spot.
+
+
+    Player
+    Controls: WASD: Move, Mouse: Look, Left Shift: sprint, C: crouch.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -601,12 +611,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 28
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 17
-  m_fontSizeMax: 36
+  m_fontSizeMax: 28
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -1315,7 +1325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Navigation Test
+  m_text: Horror Game Scenario
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1589,7 +1599,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Roaming Test
+  m_text: Horror game scenario test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2212,6 +2222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultMenuIndex: 0
+  _showMenu: 1
   m_Menus:
   - {fileID: 1442768571}
   - {fileID: 53275806}

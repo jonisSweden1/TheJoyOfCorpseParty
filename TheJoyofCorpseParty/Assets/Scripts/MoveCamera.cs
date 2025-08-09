@@ -8,6 +8,9 @@ public class MoveCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = cameraPosition.position;
+        if(PlayerDeathManager.m_IsAlive)
+        {
+            transform.position = cameraPosition.position;
+        }
     }
 }

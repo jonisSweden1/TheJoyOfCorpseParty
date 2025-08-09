@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     private int _currentMenuIndex = -1;
 
     [SerializeField]
+    private bool _showMenu = false;
+
+    [SerializeField]
     public GameObject[] m_Menus;
 
     private void Awake()
@@ -29,9 +32,11 @@ public class UIManager : MonoBehaviour
     {
         if (m_Menus != null)
         {
-            if (m_Menus[_defaultMenuIndex].gameObject.name.ToLower() != "pause_menu")
-            m_Menus[_defaultMenuIndex].SetActive(true);
-            _currentMenuIndex = _defaultMenuIndex;
+            if (_showMenu)
+            {
+                m_Menus[_defaultMenuIndex].SetActive(true);
+                _currentMenuIndex = _defaultMenuIndex;
+            }
         }
     }
 
@@ -61,7 +66,12 @@ public class UIManager : MonoBehaviour
 
     public void ForceMenu(int index)
     {
-        m_Menus[_currentMenuIndex].SetActive(false);
+        Debug.Log("Force menu");
+
+        if(_currentMenuIndex > -1)
+        {
+            m_Menus[_currentMenuIndex].SetActive(false);
+        }
         m_Menus[index].SetActive(true);
     }
 

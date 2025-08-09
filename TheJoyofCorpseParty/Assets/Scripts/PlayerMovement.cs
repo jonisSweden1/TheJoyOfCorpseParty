@@ -64,9 +64,18 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         startYScale = transform.localScale.y;
+    }
 
+    private void OnEnable()
+    {
         m_CrouchKey.action.performed += Crouch_performed;
         m_CrouchKey.action.canceled += Crouch_canceled;
+    }
+
+    private void OnDisable()
+    {
+        m_CrouchKey.action.performed -= Crouch_performed;
+        m_CrouchKey.action.canceled -= Crouch_canceled;
     }
 
     private void Crouch_canceled(InputAction.CallbackContext obj)
@@ -100,19 +109,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetInputCrouch()
     {
-        if (m_CrouchKey.action.IsPressed())
+        if(m_CrouchKey != null)
         {
-            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-        }
-        else
-        {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+            if (m_CrouchKey.action.IsPressed())
+            {
+                transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+                rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+            }
+            else
+            {
+                transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+            }
         }
     }
 
     private void GetInput()
     {
+        
         Vector2 input = m_MoveInputReference.action.ReadValue<Vector2>();
         horizontalInput = input.x;
         verticalInput = input.y;

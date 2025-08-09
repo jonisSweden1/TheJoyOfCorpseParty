@@ -22,10 +22,27 @@ public class PlayerCameraController : MonoBehaviour
         Cursor.visible = false;
     }
 
+    private void OnEnable()
+    {
+        PlayerDeathManager.m_OnDeath += DisableCamera;
+    }
+
+    private void OnDisable()
+    {
+        PlayerDeathManager.m_OnDeath -= DisableCamera;
+    }
+
     // Update is called once per frame
     void Update()
     {
         RotateCamera();
+    }
+
+    void DisableCamera()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        this.enabled = false;
     }
 
     void RotateCamera()

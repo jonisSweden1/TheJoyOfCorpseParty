@@ -118,6 +118,8 @@ public class EnemyStateManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Found something");
+
         _currentState.OnTriggerEnterState(other, this);
 
         if (other.gameObject.tag.ToLower() == "player")

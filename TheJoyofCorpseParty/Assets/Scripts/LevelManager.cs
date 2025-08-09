@@ -25,4 +25,9 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneId);
     }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
