@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance { get; private set; }
+
     [SerializeField]
     private int _defaultMenuIndex;
     private int _previousMenuIndex = -1;
@@ -11,10 +13,23 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     public GameObject[] m_Menus;
 
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     private void Start()
     {
         if (m_Menus != null)
         {
+            if (m_Menus[_defaultMenuIndex].gameObject.name.ToLower() != "pause_menu")
             m_Menus[_defaultMenuIndex].SetActive(true);
             _currentMenuIndex = _defaultMenuIndex;
         }

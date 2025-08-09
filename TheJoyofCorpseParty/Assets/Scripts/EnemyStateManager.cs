@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -118,6 +119,13 @@ public class EnemyStateManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _currentState.OnTriggerEnterState(other, this);
+
+        if (other.gameObject.tag.ToLower() == "player")
+        {
+            Debug.Log("Found player");
+
+            other.gameObject.GetComponentInParent<PlayerDeathManager>().KillPlayer();
+        }
     }
 
     public void SwitchState(EnemyBaseState state)

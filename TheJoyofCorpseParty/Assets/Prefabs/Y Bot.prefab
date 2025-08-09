@@ -385,6 +385,7 @@ MonoBehaviour:
   m_RunAcceleration: 0
   m_MinTimeToRoamToNextLocation: 1.8
   m_MaxTimeToRoamToNextLocation: 10
+  m_ExposureTime: 1.1
   m_Destinations: []
   m_RootListDestinations: {fileID: 0}
 --- !u!65 &422969641722896615
@@ -407,7 +408,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1.9064564, z: 1}
-  m_Center: {x: 0, y: 0.947656, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &8870776960206573192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,8 +421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb2dc5db28f66f240a58845f6e4b5787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 3
-  angle: 90
+  radius: 20
+  angle: 52
   targetMask:
     serializedVersion: 2
     m_Bits: 8
