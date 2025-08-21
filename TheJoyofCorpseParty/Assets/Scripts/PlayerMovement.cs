@@ -44,8 +44,6 @@ public class PlayerMovement : MonoBehaviour
 
     private MovementState state;
 
-    private LineRenderer _lineRenderer;
-
     public enum MovementState
     {
         walking, sprinting, crouching
@@ -60,8 +58,6 @@ public class PlayerMovement : MonoBehaviour
         playerSlopeHandler = GetComponent<PlayerSlopeHandler>();
 
         stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
-
-        _lineRenderer = GetComponent<LineRenderer>();
     }
 
     private void Start()
@@ -204,28 +200,21 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
 
-        _lineRenderer.SetPosition(0, stepRayLower.position);
-
         if (state == MovementState.walking)
         {
             RaycastHit hitLower;
             if (Physics.Raycast(stepRayLower.position, m_Orientation.TransformDirection(Vector3.forward), out hitLower, 0.4f))
             {
-                _lineRenderer.SetPosition(1, hitLower.point);
-                _lineRenderer.SetPosition(2, stepRayUpper.position);
-
-                Debug.Log("Hitlower: " + hitLower.transform.name);
+                //Debug.Log("Hitlower: " + hitLower.transform.name);
 
                 RaycastHit hitUpper;
                 if (Physics.Raycast(stepRayUpper.position, m_Orientation.TransformDirection(Vector3.forward), out hitUpper, 0.6f))
                 {
-                    _lineRenderer.SetPosition(2, hitLower.point);
-
-                    Debug.Log("Hitupper: " + hitUpper.transform.name);
+                    //Debug.Log("Hitupper: " + hitUpper.transform.name);
 
                     if (hitUpper.transform.tag == "Stairs")
                     {
-                        Debug.Log("Moving up");
+                        //Debug.Log("Moving up");
                         rb.position -= new Vector3(0f, -stepSmooth, 0f);
                     }
                 }
