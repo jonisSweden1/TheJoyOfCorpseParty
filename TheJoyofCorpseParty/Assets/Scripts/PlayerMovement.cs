@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     float startYScale;
 
     [Header("Step Climb")]
-    [SerializeField] GameObject stepRayUpper;
-    [SerializeField] GameObject stepRayLower;
+    [SerializeField] Transform stepRayUpper;
+    [SerializeField] Transform stepRayLower;
 
     [SerializeField] float stepHeight = 0.3f;
     [SerializeField] float stepSmooth = 0.1f;
@@ -44,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
 
     private MovementState state;
 
+    private LineRenderer _lineRenderer;
+
     public enum MovementState
     {
         walking, sprinting, crouching
@@ -58,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
         playerSlopeHandler = GetComponent<PlayerSlopeHandler>();
 
         stepRayUpper.transform.position = new Vector3(stepRayUpper.transform.position.x, stepHeight, stepRayUpper.transform.position.z);
+
+        _lineRenderer = GetComponent<LineRenderer>();
     }
 
     private void Start()
@@ -198,60 +202,62 @@ public class PlayerMovement : MonoBehaviour
 
     private void StepClimb()
     {
-        RaycastHit hitLower;
-        if(Physics.Raycast(stepRayLower.transform.position, m_Orientation.TransformDirection(Vector3.forward), out hitLower, 0.4f))
+        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
+
+        _lineRenderer.SetPosition(0, stepRayLower.position);
+
+        if (state == MovementState.walking)
         {
-            Debug.Log("Hitlower: " + hitLower.transform.name);
-
-            RaycastHit hitUpper;
-            if(Physics.Raycast(stepRayUpper.transform.position, m_Orientation.TransformDirection(Vector3.forward), out hitUpper, 0.3f))
+            RaycastHit hitLower;
+            if (Physics.Raycast(stepRayLower.position, m_Orientation.TransformDirection(Vector3.forward), out hitLower, 0.4f))
             {
-                Debug.Log("Hitupper: " + hitUpper.transform.name);
+                _lineRenderer.SetPosition(1, hitLower.point);
+                _lineRenderer.SetPosition(2, stepRayUpper.position);
 
-                if (hitUpper.transform.tag == "Stairs")
+                Debug.Log("Hitlower: " + hitLower.transform.name);
+
+                RaycastHit hitUpper;
+                if (Physics.Raycast(stepRayUpper.position, m_Orientation.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
                 {
-                    Debug.Log("Moving up");
-                    rb.position -= new Vector3(0f, -stepSmooth, 0f);
+                    _lineRenderer.SetPosition(2, hitLower.point);
+
+                    Debug.Log("Hitupper: " + hitUpper.transform.name);
+
+                    if (hitUpper.transform.tag == "Stairs")
+                    {
+                        Debug.Log("Moving up");
+                        rb.position -= new Vector3(0f, -stepSmooth, 0f);
+                    }
+                }
+            }
+
+            RaycastHit hitLower45;
+            if (Physics.Raycast(stepRayLower.position, m_Orientation.TransformDirection(1.5f, 0, 1), out hitLower45, 0.4f))
+            {
+                RaycastHit hitUpper45;
+                if (Physics.Raycast(stepRayUpper.position, m_Orientation.TransformDirection(1.5f, 0, 1), out hitUpper45, 0.2f))
+                {
+                    if (hitUpper45.transform.tag == "Stairs")
+                    {
+                        Debug.Log("Moving up");
+                        rb.position -= new Vector3(0f, -stepSmooth, 0f);
+                    }
+                }
+            }
+
+            RaycastHit hitLowerMinus45;
+            if (Physics.Raycast(stepRayLower.position, m_Orientation.TransformDirection(-1.5f, 0, 1), out hitLowerMinus45, 0.4f))
+            {
+                RaycastHit hitUpperMinus45;
+                if (Physics.Raycast(stepRayUpper.position, m_Orientation.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.2f))
+                {
+                    if (hitUpperMinus45.transform.tag == "Stairs")
+                    {
+                        Debug.Log("Moving up");
+                        rb.position -= new Vector3(0f, -stepSmooth, 0f);
+                    }
                 }
             }
         }
-
-        RaycastHit hitLower45;
-        if (Physics.Raycast(stepRayLower.transform.position, m_Orientation.TransformDirection(1.5f, 0, 1), out hitLower45, 0.4f))
-        {
-            Debug.Log("Hitlower 45: " + hitLower45.transform.name);
-
-            RaycastHit hitUpper45;
-            if (Physics.Raycast(stepRayUpper.transform.position, m_Orientation.TransformDirection(1.5f, 0, 1), out hitUpper45, 0.3f))
-            {
-                Debug.Log("Hitupper 45: " + hitUpper45.transform.name);
-
-                if (hitUpper45.transform.tag == "Stairs")
-                {
-                    Debug.Log("Moving up");
-                    rb.position -= new Vector3(0f, -stepSmooth, 0f);
-                }
-            }
-        }
-
-        RaycastHit hitLowerMinus45;
-        if (Physics.Raycast(stepRayLower.transform.position, m_Orientation.TransformDirection(-1.5f, 0, 1), out hitLowerMinus45, 0.4f))
-        {
-            Debug.Log("Hitlower Minus 45: " + hitLowerMinus45.transform.name);
-
-            RaycastHit hitUpperMinus45;
-            if (Physics.Raycast(stepRayUpper.transform.position, m_Orientation.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.3f))
-            {
-                Debug.Log("Hitupper Minus 45: " + hitUpperMinus45.transform.name);
-
-                if (hitUpperMinus45.transform.tag == "Stairs")
-                {
-                    Debug.Log("Moving up");
-                    rb.position -= new Vector3(0f, -stepSmooth, 0f);
-                }
-            }
-        }
-
-
     }
 }
