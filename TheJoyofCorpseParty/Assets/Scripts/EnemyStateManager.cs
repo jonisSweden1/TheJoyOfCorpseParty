@@ -21,11 +21,18 @@ public class EnemyStateManager : MonoBehaviour
 
     [Header("Speed")]
     public float m_WalkSpeed;
+    public float m_WalkAngularSpeed;
+
     public float m_RunSpeed;
+    public float m_RunAngularSpeed;
 
     [Header("Acceleration")]
     public float m_WalkAcceleration;
     public float m_RunAcceleration;
+
+    [Header("Angle change")]
+    public float m_RoamAngleField;
+    public float m_ChaseAngleField;
 
     [Header("Time To Roam (s)")]
     [Tooltip("Write it in seconds")]

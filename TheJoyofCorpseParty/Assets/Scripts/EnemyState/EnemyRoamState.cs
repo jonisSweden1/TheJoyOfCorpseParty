@@ -8,7 +8,10 @@ public class EnemyRoamState : EnemyBaseState
     public override void EnterState(EnemyStateManager stateManager)
     {
         stateManager.m_Agent.speed = stateManager.m_WalkSpeed;
+        stateManager.m_Agent.angularSpeed = stateManager.m_WalkAngularSpeed;
         stateManager.m_Agent.acceleration = stateManager.m_WalkAcceleration;
+
+        stateManager.m_Enemy_Detection_System.angle = stateManager.m_RoamAngleField;
 
         Debug.Log(stateManager.Destinations.Length - 1);
 

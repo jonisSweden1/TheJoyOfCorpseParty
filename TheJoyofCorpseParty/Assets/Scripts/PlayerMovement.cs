@@ -217,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Hitlower: " + hitLower.transform.name);
 
                 RaycastHit hitUpper;
-                if (Physics.Raycast(stepRayUpper.position, m_Orientation.TransformDirection(Vector3.forward), out hitUpper, 0.2f))
+                if (Physics.Raycast(stepRayUpper.position, m_Orientation.TransformDirection(Vector3.forward), out hitUpper, 0.6f))
                 {
                     _lineRenderer.SetPosition(2, hitLower.point);
 
@@ -235,7 +235,7 @@ public class PlayerMovement : MonoBehaviour
             if (Physics.Raycast(stepRayLower.position, m_Orientation.TransformDirection(1.5f, 0, 1), out hitLower45, 0.4f))
             {
                 RaycastHit hitUpper45;
-                if (Physics.Raycast(stepRayUpper.position, m_Orientation.TransformDirection(1.5f, 0, 1), out hitUpper45, 0.2f))
+                if (Physics.Raycast(stepRayUpper.position, m_Orientation.TransformDirection(1.5f, 0, 1), out hitUpper45, 0.6f))
                 {
                     if (hitUpper45.transform.tag == "Stairs")
                     {
@@ -249,7 +249,7 @@ public class PlayerMovement : MonoBehaviour
             if (Physics.Raycast(stepRayLower.position, m_Orientation.TransformDirection(-1.5f, 0, 1), out hitLowerMinus45, 0.4f))
             {
                 RaycastHit hitUpperMinus45;
-                if (Physics.Raycast(stepRayUpper.position, m_Orientation.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.2f))
+                if (Physics.Raycast(stepRayUpper.position, m_Orientation.TransformDirection(-1.5f, 0, 1), out hitUpperMinus45, 0.6f))
                 {
                     if (hitUpperMinus45.transform.tag == "Stairs")
                     {

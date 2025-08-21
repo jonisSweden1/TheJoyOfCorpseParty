@@ -9,6 +9,9 @@ public class EnemyChaseState : EnemyBaseState
 
         stateManager.m_Agent.acceleration = stateManager.m_RunAcceleration;
         stateManager.m_Agent.speed = stateManager.m_RunSpeed;
+        stateManager.m_Agent.angularSpeed = stateManager.m_RunAngularSpeed;
+
+        stateManager.m_Enemy_Detection_System.angle = stateManager.m_ChaseAngleField;
     }
 
     public override void ExitState(EnemyStateManager stateManager)

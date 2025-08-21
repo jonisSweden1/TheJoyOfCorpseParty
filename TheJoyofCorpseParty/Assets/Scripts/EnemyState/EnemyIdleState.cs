@@ -7,6 +7,8 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void EnterState(EnemyStateManager stateManager)
     {
+        stateManager.m_Enemy_Detection_System.angle = stateManager.m_RoamAngleField;
+
         _idleTime = stateManager.m_TimeToRoam;
     }
 
