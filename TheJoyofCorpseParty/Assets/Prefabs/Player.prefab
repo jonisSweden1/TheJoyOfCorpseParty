@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 3
-  sprintSpeed: 7
+  sprintSpeed: 5.5
   m_GroundDrag: 5
   m_CrouchSpeed: 2
   crouchYScale: 0.5

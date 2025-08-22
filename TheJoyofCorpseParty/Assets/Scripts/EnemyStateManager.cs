@@ -93,7 +93,7 @@ public class EnemyStateManager : MonoBehaviour
 
         if(m_MaxTimeToRoamToNextLocation < m_MinTimeToRoamToNextLocation)
         {
-            Debug.LogError("Max time to roam is lower than min which can cause problems");
+            Debug.LogError("Maximum time to roam is lower than minimum. It can break the randomizer");
         }
     }
 
