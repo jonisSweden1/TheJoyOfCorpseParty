@@ -226,7 +226,7 @@ MonoBehaviour:
   crouchYScale: 0.5
   stepRayUpper: {fileID: 3901040100722096512}
   stepRayLower: {fileID: 7218702674288740222}
-  stepHeight: 0.2
+  stepHeight: 0.25
   stepSmooth: 0.1
   m_MoveInputReference: {fileID: -1680190386980627800, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   m_SprintKey: {fileID: -7471211009204490832, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
