@@ -70850,6 +70850,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 129587863081198663, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6447754
+      objectReference: {fileID: 0}
+    - target: {fileID: 129587863081198663, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.69072396
+      objectReference: {fileID: 0}
+    - target: {fileID: 129587863081198663, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.07336564
+      objectReference: {fileID: 0}
+    - target: {fileID: 129587863081198663, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7054533
+      objectReference: {fileID: 0}
+    - target: {fileID: 129587863081198663, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00285485
+      objectReference: {fileID: 0}
+    - target: {fileID: 129587863081198663, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70864284
+      objectReference: {fileID: 0}
+    - target: {fileID: 129587863081198663, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.012361223
+      objectReference: {fileID: 0}
     - target: {fileID: 730062807175199806, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26.424625
@@ -70890,9 +70918,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4361141876060728203, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5658763916649251843, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
       propertyPath: m_Name
       value: HideSpot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658763916649251843, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
