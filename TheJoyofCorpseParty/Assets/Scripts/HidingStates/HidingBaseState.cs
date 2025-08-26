@@ -7,4 +7,6 @@ public abstract class HidingBaseState
     public abstract void ExitState(HidingStateManager stateManager);
 
     public abstract void UpdateState(HidingStateManager stateManager);
+
+    public abstract void EnterKey(HidingStateManager stateManager);
 }

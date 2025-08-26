@@ -1,11 +1,29 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HidingStateManager : MonoBehaviour
 {
     HidingBaseState currentState;
-    public HidingIdleState idleState;
-    public HidingHideState hideState;
+    public HidingIdleState idleState { get; private set; }
+    public HidingHideState hideState { get; private set; }
+
+    [Header("Keybinds")]
+    [SerializeField] private InputActionReference m_UseKey;
+
+    [Header("References")]
+    [SerializeField]
+    private Transform playerCam;
+
+    [SerializeField]
+    private GameObject player;
+
+    public Transform playerCamInfo { get {  return playerCam; } }
+
+    public GameObject playerInfo { get { return player; } }
+
+    [HideInInspector]
+    public Vector3 camPos;
 
     private void Awake()
     {
@@ -13,9 +31,25 @@ public class HidingStateManager : MonoBehaviour
         hideState = new HidingHideState();
     }
 
+    private void OnEnable()
+    {
+        m_UseKey.action.performed += UseAction_performed;
+    }
+
+    private void UseAction_performed(InputAction.CallbackContext obj)
+    {
+        currentState.EnterKey(this);
+    }
+
+    private void OnDisable()
+    {
+        m_UseKey.action.performed -= UseAction_performed;
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currentState = idleState;
         currentState.EnterState(this);
     }
 

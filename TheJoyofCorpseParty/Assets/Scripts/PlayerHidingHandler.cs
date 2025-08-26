@@ -10,25 +10,20 @@ public class PlayerHidingHandler : MonoBehaviour
     [SerializeField]
     private float distance;
 
-    public static event Action<Transform> m_OnUse;
-
-    [Header("Keybinds")]
-    [SerializeField] private InputActionReference m_UseKey;
-
     private bool isHidingSpotFound;
-    private Transform cameraPos;
+    private Transform cameraTrans;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        m_UseKey.action.performed += UseAction_performed;
-    }
-
-    private void UseAction_performed(InputAction.CallbackContext obj)
+    public bool FindHidingSpot(out Vector3 cameraPos)
     {
         if(isHidingSpotFound)
         {
-            m_OnUse.Invoke(cameraPos);
+            cameraPos = cameraTrans.position;
+            return true;
+        }
+        else
+        {
+            cameraPos = Vector3.zero;
+            return false;
         }
     }
 
@@ -41,7 +36,7 @@ public class PlayerHidingHandler : MonoBehaviour
         {
             if (hit.collider.tag == "HideSpot")
             {
-                cameraPos = hit.collider.transform.GetChild(0);
+                cameraTrans = hit.collider.transform.GetChild(0);
                 isHidingSpotFound = true;
             }
         }
