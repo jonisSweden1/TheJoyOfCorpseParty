@@ -64704,8 +64704,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dca3f535bae2c1438542acb9fbb3372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UseKey: {fileID: 1781555164194001046, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   playerCam: {fileID: 3994933181388306750}
   player: {fileID: 7456009390699159023}
+  camPos: {x: 0, y: 0, z: 0}
 --- !u!1 &2002776245
 GameObject:
   m_ObjectHideFlags: 0
