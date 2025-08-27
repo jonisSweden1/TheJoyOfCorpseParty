@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,6 +20,11 @@ public class HidingStateManager : MonoBehaviour
     public Transform playerCamInfo { get {  return playerCam; } }
 
     public GameObject playerInfo { get { return player; } }
+
+    [SerializeField]
+    private AnimationCurve curveToHideCamPos;
+
+    public AnimationCurve curveToShowCamPos { get { return curveToHideCamPos; } }
 
     [HideInInspector]
     public Vector3 camPos;

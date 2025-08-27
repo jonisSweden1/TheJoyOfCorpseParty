@@ -5,6 +5,8 @@ public class HidingIdleState : HidingBaseState
     public override void EnterKey(HidingStateManager stateManager)
     {
         PlayerHidingHandler handler = stateManager.playerCamInfo.gameObject.GetComponent<PlayerHidingHandler>();
+
+        Debug.Log(handler);
         if (handler != null)
         {
             Vector3 pos = Vector3.zero;

@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4372533207769718019}
   - component: {fileID: 3364936352596441388}
   - component: {fileID: 1941403830846658727}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HideSpot
   m_TagString: HideSpot
   m_Icon: {fileID: 0}

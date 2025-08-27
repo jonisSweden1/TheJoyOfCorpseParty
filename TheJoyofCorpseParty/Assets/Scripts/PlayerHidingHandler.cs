@@ -17,11 +17,13 @@ public class PlayerHidingHandler : MonoBehaviour
     {
         if(isHidingSpotFound)
         {
+            Debug.Log("Hiding spot is found");
             cameraPos = cameraTrans.position;
             return true;
         }
         else
         {
+            Debug.Log("Hiding spot is not found");
             cameraPos = Vector3.zero;
             return false;
         }
@@ -36,7 +38,10 @@ public class PlayerHidingHandler : MonoBehaviour
         {
             if (hit.collider.tag == "HideSpot")
             {
+                //Debug.Log("Hiding spot Found!");
                 cameraTrans = hit.collider.transform.GetChild(0);
+                //Debug.Log(cameraTrans);
+                
                 isHidingSpotFound = true;
             }
         }

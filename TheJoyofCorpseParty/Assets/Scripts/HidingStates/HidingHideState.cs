@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class HidingHideState : HidingBaseState
 {
+    private Vector3 startPosition;
+    private float currentTime = 0;
+    private float currentCurveEvaluation;
+
     public override void EnterKey(HidingStateManager stateManager)
     {
         stateManager.ChangeState(stateManager.idleState);
@@ -9,7 +13,9 @@ public class HidingHideState : HidingBaseState
 
     public override void EnterState(HidingStateManager stateManager)
     {
-        
+        startPosition = stateManager.playerCamInfo.position;
+
+        currentTime = 0;
     }
 
     public override void ExitState(HidingStateManager stateManager)
@@ -19,11 +25,17 @@ public class HidingHideState : HidingBaseState
 
     public override void UpdateState(HidingStateManager stateManager)
     {
-        TransitionCamera();
+        if(currentTime <= 1)
+        {
+            currentTime += Time.deltaTime;
+            currentCurveEvaluation = stateManager.curveToShowCamPos.Evaluate(currentTime);
+
+            TransitionCamera(stateManager);
+        }
     }
 
-    private void TransitionCamera()
+    private void TransitionCamera(HidingStateManager stateManager)
     {
-        
+        stateManager.playerCamInfo.position = Vector3.Lerp(startPosition, stateManager.camPos, currentCurveEvaluation);
     }
 }
