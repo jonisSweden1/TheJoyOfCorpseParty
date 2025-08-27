@@ -37,7 +37,7 @@ public class HidingStateManager : MonoBehaviour
 
     private void OnEnable()
     {
-        m_UseKey.action.performed += UseAction_performed;
+        m_UseKey.action.started += UseAction_performed;
     }
 
     private void UseAction_performed(InputAction.CallbackContext obj)
@@ -47,7 +47,7 @@ public class HidingStateManager : MonoBehaviour
 
     private void OnDisable()
     {
-        m_UseKey.action.performed -= UseAction_performed;
+        m_UseKey.action.started -= UseAction_performed;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
