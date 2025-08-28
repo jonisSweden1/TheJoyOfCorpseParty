@@ -27,7 +27,7 @@ public class HidingStateManager : MonoBehaviour
     public AnimationCurve curveToShowCamPos { get { return curveToHideCamPos; } }
 
     [HideInInspector]
-    public Vector3 camPos;
+    public Transform camTrans;
 
     private void Awake()
     {

@@ -13,18 +13,18 @@ public class PlayerHidingHandler : MonoBehaviour
     private bool isHidingSpotFound;
     private Transform cameraTrans;
 
-    public bool FindHidingSpot(out Vector3 cameraPos)
+    public bool FindHidingSpot(out Transform cameraPos)
     {
         if(isHidingSpotFound)
         {
             Debug.Log("Hiding spot is found");
-            cameraPos = cameraTrans.position;
+            cameraPos = cameraTrans;
             return true;
         }
         else
         {
             Debug.Log("Hiding spot is not found");
-            cameraPos = Vector3.zero;
+            cameraPos = null;
             return false;
         }
     }

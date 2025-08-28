@@ -552,5 +552,4 @@ MonoBehaviour:
   hidingMask:
     serializedVersion: 2
     m_Bits: 128
-  distance: 1
-  m_UseKey: {fileID: 1781555164194001046, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
+  distance: 1.4

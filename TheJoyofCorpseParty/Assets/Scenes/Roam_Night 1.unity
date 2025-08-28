@@ -64731,7 +64731,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  camPos: {x: 0, y: 0, z: 0}
+  camTrans: {fileID: 0}
 --- !u!1 &2002776245
 GameObject:
   m_ObjectHideFlags: 0
@@ -70946,6 +70946,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3364936352596441388, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7375d515855601a4da55a12bd58bd80d, type: 2}
     - target: {fileID: 4361141876060728203, guid: ee5ec8fe506a80846872026db75a8fa3, type: 3}
       propertyPath: m_Layer
       value: 7

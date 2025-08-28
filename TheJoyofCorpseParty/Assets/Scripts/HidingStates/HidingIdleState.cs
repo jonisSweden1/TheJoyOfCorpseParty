@@ -9,11 +9,11 @@ public class HidingIdleState : HidingBaseState
         Debug.Log(handler);
         if (handler != null)
         {
-            Vector3 pos = Vector3.zero;
+            Transform camTrans = null;
 
-            if (handler.FindHidingSpot(out pos))
+            if (handler.FindHidingSpot(out camTrans))
             {
-                stateManager.camPos = pos;
+                stateManager.camTrans = camTrans;
                 stateManager.ChangeState(stateManager.hideState);
             }
         }
