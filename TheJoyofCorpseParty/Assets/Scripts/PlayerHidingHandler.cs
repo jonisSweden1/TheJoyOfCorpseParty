@@ -10,8 +10,16 @@ public class PlayerHidingHandler : MonoBehaviour
     [SerializeField]
     private float distance;
 
+    [SerializeField]
+    private Material selectionMaterial;
+
+    private Material originalMaterial;
+
     private bool isHidingSpotFound;
     private Transform cameraTrans;
+    private GameObject _hideSpot;
+
+    private bool isHidingSpotTook = false;
 
     public bool FindHidingSpot(out Transform cameraPos)
     {
@@ -19,6 +27,9 @@ public class PlayerHidingHandler : MonoBehaviour
         {
             Debug.Log("Hiding spot is found");
             cameraPos = cameraTrans;
+            isHidingSpotTook = true;
+            UnvisualizeTheSpot(_hideSpot);
+            enabled = false;
             return true;
         }
         else
@@ -27,6 +38,11 @@ public class PlayerHidingHandler : MonoBehaviour
             cameraPos = null;
             return false;
         }
+    }
+
+    private void OnEnable()
+    {
+        isHidingSpotTook = false;
     }
 
     // Update is called once per frame
@@ -40,6 +56,10 @@ public class PlayerHidingHandler : MonoBehaviour
             {
                 //Debug.Log("Hiding spot Found!");
                 cameraTrans = hit.collider.transform.GetChild(0);
+                _hideSpot = hit.collider.gameObject;
+
+                if(!isHidingSpotTook)
+                    VisualizeTheSpot(_hideSpot);
                 //Debug.Log(cameraTrans);
                 
                 isHidingSpotFound = true;
@@ -47,7 +67,22 @@ public class PlayerHidingHandler : MonoBehaviour
         }
         else
         {
+            UnvisualizeTheSpot(_hideSpot);
             isHidingSpotFound = false;
+        }
+    }
+
+    void VisualizeTheSpot(GameObject hideSpot)
+    {
+        originalMaterial = hideSpot.GetComponent<MeshRenderer>().material;
+        hideSpot.GetComponent<MeshRenderer>().material = selectionMaterial;
+    }
+
+    void UnvisualizeTheSpot(GameObject hideSpot)
+    {
+        if(originalMaterial != null)
+        {
+            hideSpot.GetComponent<MeshRenderer>().material = originalMaterial;
         }
     }
 }

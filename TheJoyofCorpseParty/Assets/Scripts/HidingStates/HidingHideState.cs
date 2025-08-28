@@ -10,6 +10,7 @@ public class HidingHideState : HidingBaseState
 
     public override void EnterKey(HidingStateManager stateManager)
     {
+        stateManager.playerCamInfo.GetComponent<PlayerHidingHandler>().enabled = true;
         stateManager.ChangeState(stateManager.idleState);
     }
 

@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     public enum MovementState
     {
-        walking, sprinting, crouching
+        walking, sprinting, crouching, idle
     }
 
     private void Awake()
@@ -124,7 +124,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetInput()
     {
-        
         Vector2 input = m_MoveInputReference.action.ReadValue<Vector2>();
         horizontalInput = input.x;
         verticalInput = input.y;
@@ -151,6 +150,12 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.walking;
             m_MoveSpeed = walkSpeed;
+        }
+
+        // Mode - Idle
+        else
+        {
+            state = MovementState.idle;
         }
     }
 
