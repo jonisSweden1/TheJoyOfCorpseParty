@@ -5,7 +5,7 @@ public class EnemyChaseState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager stateManager)
     {
-        Debug.Log("CHASE!!!");
+        //Debug.Log("CHASE!!!");
 
         stateManager.m_Agent.acceleration = stateManager.m_RunAcceleration;
         stateManager.m_Agent.speed = stateManager.m_RunSpeed;

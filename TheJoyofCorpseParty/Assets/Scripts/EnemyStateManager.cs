@@ -1,5 +1,5 @@
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -57,6 +57,8 @@ public class EnemyStateManager : MonoBehaviour
     private Transform m_RootListDestinations;
 
     public Transform[] Destinations { get { return m_Destinations; } }
+
+    public event Action onStateChanged;
 
     void Awake()
     {
@@ -120,7 +122,7 @@ public class EnemyStateManager : MonoBehaviour
 
     private float RandomizeTimeToRoam()
     {
-        return Random.Range(m_MinTimeToRoamToNextLocation, m_MaxTimeToRoamToNextLocation);
+        return UnityEngine.Random.Range(m_MinTimeToRoamToNextLocation, m_MaxTimeToRoamToNextLocation);
     }
 
     public bool CheckStateWithState(EnemyBaseState state)
@@ -152,5 +154,7 @@ public class EnemyStateManager : MonoBehaviour
         _currentState.ExitState(this);
         _currentState = state;
         _currentState.EnterState(this);
+
+        onStateChanged.Invoke();
     }
 }
