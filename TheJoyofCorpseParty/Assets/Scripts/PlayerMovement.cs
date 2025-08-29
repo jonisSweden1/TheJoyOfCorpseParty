@@ -139,14 +139,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Mode - Sprinting
-        else if(groundCheck.Grounded && m_SprintKey.action.IsPressed())
+        else if(m_SprintKey.action.IsPressed())
         {
             state = MovementState.sprinting;
             m_MoveSpeed = sprintSpeed;
         }
 
         // Mode - Walking
-        else if (groundCheck.Grounded)
+        else if (m_MoveInputReference.action.IsPressed())
         {
             state = MovementState.walking;
             m_MoveSpeed = walkSpeed;
@@ -156,7 +156,10 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             state = MovementState.idle;
+            m_MoveSpeed = walkSpeed;
         }
+
+        Debug.Log(state);
     }
 
     private void MovePlayer()
@@ -205,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
 
-        if (state == MovementState.walking)
+        if (state == MovementState.walking || state == MovementState.crouching)
         {
             RaycastHit hitLower;
             if (Physics.Raycast(stepRayLower.position, m_Orientation.TransformDirection(Vector3.forward), out hitLower, 0.4f))
@@ -219,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
 
                     if (hitUpper.transform.tag == "Stairs")
                     {
-                        //Debug.Log("Moving up");
+                        Debug.Log("Moving up");
                         rb.position -= new Vector3(0f, -stepSmooth, 0f);
                     }
                 }

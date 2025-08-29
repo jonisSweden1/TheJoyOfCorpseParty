@@ -123,6 +123,16 @@ public class EnemyStateManager : MonoBehaviour
         return Random.Range(m_MinTimeToRoamToNextLocation, m_MaxTimeToRoamToNextLocation);
     }
 
+    public bool CheckStateWithState(EnemyBaseState state)
+    {
+        if(_currentState == state)
+        { 
+            return true; 
+        }
+
+        return false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Found something");
