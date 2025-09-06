@@ -552,4 +552,5 @@ MonoBehaviour:
   hidingMask:
     serializedVersion: 2
     m_Bits: 128
-  distance: 1.4
+  distance: 1.7
+  selectionMaterial: {fileID: 2100000, guid: 81422d4b8e5ff67478858a415ea6dd33, type: 2}

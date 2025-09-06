@@ -3,6 +3,9 @@ using UnityEngine;
 public class EnemyAudioManager : MonoBehaviour
 {
     private AudioSource _audioSource;
+
+    [SerializeField]
+    private AudioSource _audioSource2;
     private EnemyStateManager _enemyStateManager;
 
     [SerializeField]
@@ -10,6 +13,9 @@ public class EnemyAudioManager : MonoBehaviour
 
     [SerializeField]
     private AudioClip _chaseSignalAudioClip;
+
+    [SerializeField]
+    private AudioClip _playAmbienceSound;
 
     private bool _hasChasePlayed;
 
@@ -23,6 +29,13 @@ public class EnemyAudioManager : MonoBehaviour
     private void Start()
     {
         _hasChasePlayed = false;
+
+        if( _audioSource2 != null )
+        {
+            _audioSource2.clip = _playAmbienceSound;
+            _audioSource2.loop = true;
+            _audioSource2.Play();
+        }
     }
 
     private void OnEnable()

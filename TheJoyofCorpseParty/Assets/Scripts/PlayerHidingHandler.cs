@@ -20,6 +20,7 @@ public class PlayerHidingHandler : MonoBehaviour
     private GameObject _hideSpot;
 
     private bool isHidingSpotTook = false;
+    private bool isHidingSpotShown = false;
 
     public bool FindHidingSpot(out Transform cameraPos)
     {
@@ -58,8 +59,11 @@ public class PlayerHidingHandler : MonoBehaviour
                 cameraTrans = hit.collider.transform.GetChild(0);
                 _hideSpot = hit.collider.gameObject;
 
-                if(!isHidingSpotTook)
+                if(!isHidingSpotTook && !isHidingSpotShown)
+                {
                     VisualizeTheSpot(_hideSpot);
+                    isHidingSpotShown =true;
+                }
                 //Debug.Log(cameraTrans);
                 
                 isHidingSpotFound = true;
@@ -67,6 +71,8 @@ public class PlayerHidingHandler : MonoBehaviour
         }
         else
         {
+            //Debug.Log("Unvisualize");
+
             UnvisualizeTheSpot(_hideSpot);
             isHidingSpotFound = false;
         }
@@ -83,6 +89,7 @@ public class PlayerHidingHandler : MonoBehaviour
         if(originalMaterial != null)
         {
             hideSpot.GetComponent<MeshRenderer>().material = originalMaterial;
+            isHidingSpotShown=false;
         }
     }
 }

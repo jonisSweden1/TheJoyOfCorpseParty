@@ -573,7 +573,7 @@ PrefabInstance:
       addedObject: {fileID: 928342590682177121}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1197128347644832038}
+      addedObject: {fileID: 7117806185816283609}
   m_SourcePrefab: {fileID: 100100000, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
 --- !u!4 &421540534323454632 stripped
 Transform:
@@ -701,6 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83dee33256791624a834086352a12bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSource2: {fileID: 7117806185816283609}
   _walkingFootStepsAudioClips:
   - {fileID: 8300000, guid: 5e265270fb85126479eef52d8fce3b08, type: 3}
   - {fileID: 8300000, guid: 65507879ee055e648b1de3581c284cca, type: 3}
@@ -717,6 +718,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 72b37684ac7a413499d259a0a9be50e6, type: 3}
   - {fileID: 8300000, guid: b16b005ddc0977b4aa402b5abce3205f, type: 3}
   _chaseSignalAudioClip: {fileID: 8300000, guid: b71561dd2ad994240b14d72921afb45c, type: 3}
+  _playAmbienceSound: {fileID: 8300000, guid: 77a2266c65277514394bceaab49f0ab0, type: 3}
 --- !u!82 &928342590682177121
 AudioSource:
   m_ObjectHideFlags: 0
@@ -814,7 +816,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &1197128347644832038
+--- !u!82 &7117806185816283609
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -871,7 +873,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -160,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
             m_MoveSpeed = walkSpeed;
         }
 
-        Debug.Log(state);
+        //Debug.Log(state);
     }
 
     private void MovePlayer()
