@@ -45,10 +45,6 @@ public class PlayerMovement : MonoBehaviour
     private MovementState state;
 
     public MovementState currentState { get { return state; } }
-    public enum MovementState
-    {
-        walking, sprinting, crouching, idle
-    }
 
     private void Awake()
     {
@@ -258,4 +254,9 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+}
+
+public enum MovementState
+{
+    walking, sprinting, crouching, idle
 }
