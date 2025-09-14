@@ -567,24 +567,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'This is a continuation from the navigation test. A demonstration of enemy
-    detecting and chasing the player while patroling. The purpose of this is to give
-    feedback and adjustments to continue developing forward. As a regard for this,
-    I will be doing something "big", something that will give players to enjoy the
-    experience of a horror and unnerving experience. I can''t really explain what
-    it is yet, as I planned to build up the anticipation to the consumers of what
-    will be. But I can tell you that it''s going to be horror game which includes
-    stories, but you''ll have to wait and see in further future.
-
-
-    Regardless,
-    this is a test for the users to give feedback on. You just try to hide from the
-    blue guy. There are hiding spots (e.g. closets and beds), but he notices you
-    around 1 second and starts running. So best to hide within his blind spot.
-
-
-    Player
-    Controls: WASD: Move, Mouse: Look, Left Shift: sprint, C: crouch.'
+  m_text: "In this update, we introduce sounds and a hiding system to give some proper
+    preparations for the next update, which is going to be big...\r\n\r\nRegardless,
+    we have introduced some changes. Such as the ability to hide in some places,
+    the sound effects and ambience so you can hear, and a flashlight that you can
+    turn on or off. There are also other changes, such as enemy detection adjusted
+    so it can chase you a bit better, the changes inside the enemy state manager,
+    and the speed changed so running is not faster than how much the enemy can run,
+    but you can run after all. Now, to talk about the hiding system, the hiding spots
+    are indicated by the green hover; if you find it, then you can hide by pressing
+    the E key. If you want to leave, then just press E again. The enemy will not
+    notice you when you are in that spot, and it cannot kill you, once you are hiding,
+    for now... \r\n\r\nNow, the goal for this update is to give feedback on the level
+    design, as well as new features in the game. The game will have more features,
+    but for now, it is a demonstration.\n\nPlayer Controls: WASD: Move, Mouse: Look,
+    Left Shift: Sprint, C: Crouch, F: Flashlight"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1599,7 +1596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Horror game scenario test
+  m_text: Horror Game Scenario #2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
