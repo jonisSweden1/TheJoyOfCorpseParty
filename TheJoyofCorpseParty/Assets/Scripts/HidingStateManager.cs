@@ -12,12 +12,12 @@ public class HidingStateManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField]
-    private Transform playerCam;
+    private Camera playerCam;
 
     [SerializeField]
     private GameObject player;
 
-    public Transform playerCamInfo { get {  return playerCam; } }
+    public Camera playerCamInfo { get {  return playerCam; } }
 
     public GameObject playerInfo { get { return player; } }
 
@@ -27,7 +27,7 @@ public class HidingStateManager : MonoBehaviour
     public AnimationCurve curveToShowCamPos { get { return curveToHideCamPos; } }
 
     [HideInInspector]
-    public Transform camTrans;
+    public CamInfoData camInfo;
 
     private void Awake()
     {

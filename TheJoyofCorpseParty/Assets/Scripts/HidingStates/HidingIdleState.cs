@@ -9,11 +9,11 @@ public class HidingIdleState : HidingBaseState
         Debug.Log(handler);
         if (handler != null)
         {
-            Transform camTrans = null;
+            CamInfoData camData = null;
 
-            if (handler.FindHidingSpot(out camTrans))
+            if (handler.FindHidingSpot(out camData))
             {
-                stateManager.camTrans = camTrans;
+                stateManager.camInfo = camData;
                 stateManager.ChangeState(stateManager.hideState);
             }
         }
@@ -21,7 +21,7 @@ public class HidingIdleState : HidingBaseState
 
     public override void EnterState(HidingStateManager stateManager)
     {
-        stateManager.playerCamInfo.localPosition = Vector3.zero;
+        stateManager.playerCamInfo.transform.localPosition = Vector3.zero;
         stateManager.playerCamInfo.GetComponent<PlayerCameraController>().enabled = true;
         stateManager.playerInfo.SetActive(true);
     }
