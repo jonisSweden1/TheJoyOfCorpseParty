@@ -228,7 +228,7 @@ MonoBehaviour:
   crouchYScale: 0.5
   stepRayUpper: {fileID: 3901040100722096512}
   stepRayLower: {fileID: 7218702674288740222}
-  stepHeight: 0.25
+  stepHeight: 0.2
   stepSmooth: 0.1
   m_MoveInputReference: {fileID: -1680190386980627800, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   m_SprintKey: {fileID: -7471211009204490832, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
@@ -303,7 +303,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6056a660bb0897e4ea25a31889075437, type: 3}
   - {fileID: 8300000, guid: 3e299b9129329f24692bb63f57f33d19, type: 3}
   - {fileID: 8300000, guid: 72b37684ac7a413499d259a0a9be50e6, type: 3}
-  _jumpscareAudioClip: {fileID: 8300000, guid: 9a17fa8f2995ec44f8e2005c843c30b3, type: 3}
   runBetweenTime: 0.2
   walkBetweenTime: 0.5
   crouchWalkBetweenTime: 0.9
