@@ -567,8 +567,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In this update, we introduce sounds and a hiding system to give some proper
-    preparations for the next update, which is going to be big...\r\n\r\nRegardless,
+  m_text: "Update 0.3.1: Fixed height on the rails and height on doorframes. As well
+    as fixing stairs.\n\nIn this update, we introduce sounds and a hiding system
+    to give some proper preparations for the next update, which is going to be big...\r\n\r\nRegardless,
     we have introduced some changes. Such as the ability to hide in some places,
     the sound effects and ambience so you can hear, and a flashlight that you can
     turn on or off. There are also other changes, such as enemy detection adjusted
