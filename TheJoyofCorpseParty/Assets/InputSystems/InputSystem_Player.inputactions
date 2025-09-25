@@ -1,5 +1,5 @@
 {
-    "name": "InputSystem_Actions",
+    "name": "InputSystem_Player",
     "maps": [
         {
             "name": "Player",
@@ -81,6 +81,24 @@
                     "name": "Flashlight",
                     "type": "Button",
                     "id": "dee12ab2-5b7d-4cc1-bb12-73a489064ff3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Look_Behind",
+                    "type": "Button",
+                    "id": "4974e398-0d32-4145-af0f-4b02ba11ba97",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Open/Close_tablet",
+                    "type": "Button",
+                    "id": "0c21b88b-dd13-4f21-9d53-aa9cefd8b9e1",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -448,6 +466,28 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Flashlight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cf6a332f-68bc-467e-b86e-0e8f57c08672",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Look_Behind",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9cf20a76-242c-4ba7-b779-3b4932470405",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Open/Close_tablet",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
