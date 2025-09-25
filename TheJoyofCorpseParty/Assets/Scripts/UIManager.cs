@@ -1,5 +1,8 @@
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,7 +17,10 @@ public class UIManager : MonoBehaviour
     private bool _showMenu = false;
 
     [SerializeField]
-    public GameObject[] m_Menus;
+    private GameObject[] m_Menus;
+
+    [SerializeField]
+    private GameObject m_PopUpMessage;
 
     private void Awake()
     {
@@ -64,6 +70,27 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ShowPopUp(string message, UnityAction action)
+    {
+        if(m_PopUpMessage  != null)
+        {
+            Debug.Log(m_PopUpMessage.transform.GetChild(0));
+
+            m_PopUpMessage.transform.GetChild(0).GetComponent<TMP_Text>().text = message;
+            m_PopUpMessage.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(action);
+
+            m_PopUpMessage.SetActive(true);
+        }
+    }
+
+    public void ClosePopUp()
+    {
+        if(m_PopUpMessage != null)
+        {
+            m_PopUpMessage.SetActive(false);
+        }
+    }
+
     public void ForceMenu(int index)
     {
         Debug.Log("Force menu");
@@ -73,14 +100,5 @@ public class UIManager : MonoBehaviour
             m_Menus[_currentMenuIndex].SetActive(false);
         }
         m_Menus[index].SetActive(true);
-    }
-
-    public void CloseApplication()
-    {
-        Application.Quit();
-
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
     }
 }
