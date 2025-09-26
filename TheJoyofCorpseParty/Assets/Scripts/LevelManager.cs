@@ -1,9 +1,14 @@
+using System.Collections;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
+
+    [SerializeField]
+    private ASyncLoader _syncLoader;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -18,6 +23,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void SetMessage(string message)
+    {
+        DataTransferToScene.messageData = message;
+    }
+
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
@@ -26,7 +36,22 @@ public class LevelManager : MonoBehaviour
     public void LoadScene(int sceneId)
     {
         SceneManager.LoadScene(sceneId);
-        Debug.Log("Loaded scene");
+    }
+
+    public void LoadSceneAsync(string sceneName)
+    {
+        if(_syncLoader != null)
+        {
+            StartCoroutine(_syncLoader.LoadAsyncScene(sceneName));
+        }
+    }
+
+    public void LoadSceneAsync(int sceneId)
+    {
+        if (_syncLoader != null)
+        {
+            StartCoroutine(_syncLoader.LoadAsyncScene(sceneId));
+        }
     }
 
     public void RestartScene()
