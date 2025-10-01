@@ -3,5 +3,5 @@ using UnityEngine;
 
 public class DataTransferToScene : MonoBehaviour
 {
-    public static string messageData;
+    public static string message;
 }

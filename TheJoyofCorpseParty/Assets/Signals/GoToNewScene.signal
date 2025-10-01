@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3fcb51049e5ef148bfd943160dbdd37, type: 3}
-  m_Name: Night2
+  m_Script: {fileID: 11500000, guid: d6fa2d92fc1b3f34da284357edf89c3b, type: 3}
+  m_Name: GoToNewScene
   m_EditorClassIdentifier: 
-  title: Night2
-  description: Security
-  sceneBuildId: 3

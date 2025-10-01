@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
 
     public void SetMessage(string message)
     {
-        DataTransferToScene.messageData = message;
+        DataTransferToScene.message = message;
     }
 
     public void LoadScene(string sceneName)

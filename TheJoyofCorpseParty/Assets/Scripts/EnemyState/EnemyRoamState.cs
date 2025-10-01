@@ -13,8 +13,6 @@ public class EnemyRoamState : EnemyBaseState
 
         stateManager.m_Enemy_Detection_System.angle = stateManager.m_RoamAngleField;
 
-        Debug.Log(stateManager.Destinations.Length - 1);
-
         int rndIndex = Random.Range(0, stateManager.Destinations.Length - 1);
 
         if(previousDestinationIndex == rndIndex && previousDestinationIndex != -1)
