@@ -6,12 +6,6 @@ public class EnemyChaseState : EnemyBaseState
     public override void EnterState(EnemyStateManager stateManager)
     {
         //Debug.Log("CHASE!!!");
-
-        stateManager.m_Agent.acceleration = stateManager.m_RunAcceleration;
-        stateManager.m_Agent.speed = stateManager.m_RunSpeed;
-        stateManager.m_Agent.angularSpeed = stateManager.m_RunAngularSpeed;
-
-        stateManager.m_Enemy_Detection_System.angle = stateManager.m_ChaseAngleField;
     }
 
     public override void ExitState(EnemyStateManager stateManager)
@@ -28,10 +22,13 @@ public class EnemyChaseState : EnemyBaseState
     {
         if(stateManager.m_Enemy_Detection_System.CanSeePlayer)
         {
-            Vector3 playerPosition = stateManager.m_Enemy_Detection_System.PlayerRef.transform.position;
-            stateManager.m_Agent.SetDestination(playerPosition);
+            Transform playerTransform = stateManager.m_Enemy_Detection_System.PlayerRef.transform;
+            stateManager.m_Enemy_Navigation_System.SetDestination(playerTransform, 
+                stateManager.m_RunSpeed, 
+                stateManager.m_RunAngularSpeed, 
+                stateManager.m_RunAcceleration);
         }
-        else if(stateManager.m_Agent.pathStatus == NavMeshPathStatus.PathComplete && stateManager.m_Agent.remainingDistance <= stateManager.m_Agent.stoppingDistance)
+        else if(stateManager.m_Enemy_Navigation_System.CheckNavigationFinished())
         {
             stateManager.SwitchState(stateManager.seekState);
         }

@@ -7,10 +7,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(EnemyDetectionSystem))]
 public class EnemyStateManager : MonoBehaviour
 {
-    [HideInInspector]
-    public NavMeshAgent m_Agent;
-
     public EnemyDetectionSystem m_Enemy_Detection_System {  get; private set; }
+    public EnemyNavigationSystem m_Enemy_Navigation_System { get; private set; }
 
     public EnemyIdleState idleState;
     public EnemyRoamState roamState;
@@ -62,8 +60,8 @@ public class EnemyStateManager : MonoBehaviour
 
     void Awake()
     {
-        m_Agent = GetComponent<NavMeshAgent>();
         m_Enemy_Detection_System = GetComponent<EnemyDetectionSystem>();
+        m_Enemy_Navigation_System = GetComponent<EnemyNavigationSystem>();
 
         idleState = new EnemyIdleState();
         roamState = new EnemyRoamState();

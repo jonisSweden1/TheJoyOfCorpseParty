@@ -11,7 +11,7 @@ public class EnemySeekState : EnemyBaseState
             time = savedTime;
         }
 
-        stateManager.m_Agent.ResetPath();
+        stateManager.m_Enemy_Navigation_System.StopNavigating();
 
         Debug.Log("Seeking");
     }
