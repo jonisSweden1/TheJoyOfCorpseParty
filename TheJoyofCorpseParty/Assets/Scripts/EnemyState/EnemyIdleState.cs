@@ -28,7 +28,7 @@ public class EnemyIdleState : EnemyBaseState
 
         if(_time >= _idleTime)
         {
-            if(stateManager.Destinations == null)
+            if(!stateManager.m_Enemy_Navigation_System.CheckListDestinationsNotNull())
             {
                 Debug.LogError("There is no destination, so it will not start roaming");
                 return;

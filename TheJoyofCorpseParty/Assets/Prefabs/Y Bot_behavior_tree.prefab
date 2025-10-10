@@ -530,7 +530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       propertyPath: m_Name
-      value: Y Bot
+      value: Y Bot_behavior_tree
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       propertyPath: m_TagString
@@ -562,9 +562,6 @@ PrefabInstance:
       addedObject: {fileID: 4279476668333053631}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6240987760326508209}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 422969641722896615}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       insertIndex: -1
@@ -581,6 +578,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       insertIndex: -1
       addedObject: {fileID: 406164740724626342}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1146350493514862118}
   m_SourcePrefab: {fileID: 100100000, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
 --- !u!4 &421540534323454632 stripped
 Transform:
@@ -629,31 +629,6 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &6240987760326508209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8189674550115004031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 764014d0d67aae8449d1f7b57814ba90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_WalkSpeed: 3
-  m_WalkAngularSpeed: 720
-  m_RunSpeed: 13
-  m_RunAngularSpeed: 1440
-  m_WalkAcceleration: 10
-  m_RunAcceleration: 18
-  m_RoamAngleField: 90
-  m_ChaseAngleField: 160
-  m_MinTimeToRoamToNextLocation: 0.5
-  m_MaxTimeToRoamToNextLocation: 5
-  m_ExposureTime: 1.1
-  m_Destinations: []
-  m_RootListDestinations: {fileID: 0}
 --- !u!65 &422969641722896615
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -932,3 +907,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7bb3edc0280824d991bf7b662d894e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Destinations: []
+  m_RootListDestinations: {fileID: 0}
+--- !u!114 &-1146350493514862118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189674550115004031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: -6850665979810792133, guid: 823362695a502e24094006d0bedfc28c, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 8942405278641946938
+  - rid: 8942405278641946939
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8942405278641946938
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 8189674550115004031}
+    - rid: 8942405278641946939
+      type: {class: 'BlackboardVariable`1[[EnemyDetectionSystem, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1442501343985654318
+          m_Value1: 11941390924548310411
+        Name: FieldOfView
+        m_Value: {fileID: 0}

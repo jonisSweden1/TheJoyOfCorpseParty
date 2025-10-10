@@ -47,15 +47,6 @@ public class EnemyStateManager : MonoBehaviour
     [Tooltip("Write it in seconds")]
     public float m_ExposureTime;
 
-    [Header("List destinations")]
-    [SerializeField]
-    private Transform[] m_Destinations;
-
-    [SerializeField]
-    private Transform m_RootListDestinations;
-
-    public Transform[] Destinations { get { return m_Destinations; } }
-
     public event Action onStateChanged;
 
     void Awake()
@@ -67,23 +58,6 @@ public class EnemyStateManager : MonoBehaviour
         roamState = new EnemyRoamState();
         seekState = new EnemySeekState();
         chaseState = new EnemyChaseState();
-
-        if (m_RootListDestinations != null)
-        {
-            m_Destinations = GetAllDestinations();
-        }
-    }
-
-    private Transform[] GetAllDestinations()
-    {
-        List<Transform> destinations = new List<Transform>();
-
-        foreach(Transform t in m_RootListDestinations)
-        {
-            destinations.Add(t);
-        }
-
-        return destinations.ToArray();
     }
 
     private void Start()

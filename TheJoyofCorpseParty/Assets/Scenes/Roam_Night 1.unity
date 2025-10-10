@@ -164807,6 +164807,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 406164740724626342, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
+      propertyPath: m_RootListDestinations
+      value: 
+      objectReference: {fileID: 1573463276}
     - target: {fileID: 6240987760326508209, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
       propertyPath: m_RootListDestinations
       value: 
@@ -164822,10 +164826,6 @@ PrefabInstance:
     - target: {fileID: 8189674550115004031, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
       propertyPath: m_Name
       value: Y Bot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8189674550115004031, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8857526242805101765, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
       propertyPath: m_LocalPosition.x
