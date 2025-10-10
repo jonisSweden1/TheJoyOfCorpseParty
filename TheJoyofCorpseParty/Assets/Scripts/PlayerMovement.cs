@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        moveDirection = m_Orientation.forward * verticalInput + m_Orientation.right * horizontalInput;
+        moveDirection = (m_Orientation.forward * verticalInput + m_Orientation.right * horizontalInput) * Time.fixedDeltaTime;
 
         if(playerSlopeHandler.OnSlope())
         {
