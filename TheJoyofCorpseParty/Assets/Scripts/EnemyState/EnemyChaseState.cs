@@ -30,7 +30,7 @@ public class EnemyChasePlayerState : EnemyBaseState
         }
         else if(stateManager.m_Enemy_Navigation_System.CheckNavigationFinished())
         {
-            stateManager.SwitchState(stateManager.seekState);
+            stateManager.SwitchState(stateManager.realizationPlayerState);
         }
     }
 }

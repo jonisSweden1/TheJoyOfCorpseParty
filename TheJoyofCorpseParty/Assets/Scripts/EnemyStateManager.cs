@@ -12,7 +12,8 @@ public class EnemyStateManager : MonoBehaviour
 
     public EnemyIdleState idleState;
     public EnemyRoamState roamState;
-    public EnemySeekState seekState;
+    public EnemyRealizationPlayerState realizationPlayerState;
+    public EnemyRealizationTargetState realizationTargetState;
     public EnemyChasePlayerState chasePlayerState;
     public EnemyChaseTargetState chaseTargetState;
 
@@ -57,7 +58,7 @@ public class EnemyStateManager : MonoBehaviour
 
         idleState = new EnemyIdleState();
         roamState = new EnemyRoamState();
-        seekState = new EnemySeekState();
+        realizationPlayerState = new EnemyRealizationPlayerState();
         chasePlayerState = new EnemyChasePlayerState();
         chaseTargetState = new EnemyChaseTargetState();
     }
@@ -75,12 +76,12 @@ public class EnemyStateManager : MonoBehaviour
 
     void OnEnable()
     {
-        m_Enemy_Detection_System.m_OnDetected += TriggerSeek;
+        m_Enemy_Detection_System.m_OnDetected += TriggerRealization;
     }
 
     void OnDisable()
     {
-        m_Enemy_Detection_System.m_OnDetected -= TriggerSeek;
+        m_Enemy_Detection_System.m_OnDetected -= TriggerRealization;
     }
 
     // Update is called once per frame
@@ -89,9 +90,9 @@ public class EnemyStateManager : MonoBehaviour
         _currentState.UpdateState(this);
     }
 
-    private void TriggerSeek()
+    private void TriggerRealization()
     {
-        SwitchState(seekState);
+        SwitchState(realizationPlayerState);
     }
 
     private float RandomizeTimeToRoam()

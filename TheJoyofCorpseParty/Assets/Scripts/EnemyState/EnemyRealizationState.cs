@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemySeekState : EnemyBaseState
+public class EnemyRealizationPlayerState : EnemyBaseState
 {
     private float time = 0;
     private float savedTime = 0;
