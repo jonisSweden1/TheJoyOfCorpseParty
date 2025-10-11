@@ -684,6 +684,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource2: {fileID: 7117806185816283609}
+  _enemyStateManager: {fileID: 0}
+  _behaviorGraphAgent: {fileID: -1146350493514862118}
+  walkSpeed: 3
+  runSpeed: 0
   _walkingFootStepsAudioClips:
   - {fileID: 8300000, guid: 5e265270fb85126479eef52d8fce3b08, type: 3}
   - {fileID: 8300000, guid: 65507879ee055e648b1de3581c284cca, type: 3}
@@ -924,7 +928,11 @@ MonoBehaviour:
   m_Graph: {fileID: -6850665979810792133, guid: 823362695a502e24094006d0bedfc28c, type: 2}
   m_BlackboardVariableOverridesList:
   - rid: 8942405278641946938
-  - rid: 8942405278641946939
+  - rid: 8942405292343689844
+  - rid: 8942405292343689845
+  - rid: 8942405292343689846
+  - rid: 8942405292343689847
+  - rid: 8942405292343689848
   m_IsInitialised: 0
   m_IsStarted: 0
   references:
@@ -938,11 +946,43 @@ MonoBehaviour:
           m_Value1: 0
         Name: Self
         m_Value: {fileID: 8189674550115004031}
-    - rid: 8942405278641946939
-      type: {class: 'BlackboardVariable`1[[EnemyDetectionSystem, Assembly-CSharp]]', ns: Unity.Behavior, asm: Unity.Behavior}
+    - rid: 8942405292343689844
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
         GUID:
-          m_Value0: 1442501343985654318
-          m_Value1: 11941390924548310411
-        Name: FieldOfView
-        m_Value: {fileID: 0}
+          m_Value0: 14775020572685111356
+          m_Value1: 15896084091435001097
+        Name: Walk speed
+        m_Value: 3
+    - rid: 8942405292343689845
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15963295522931093357
+          m_Value1: 252221496979776317
+        Name: WaitFromFloat
+        m_Value: 0.5
+    - rid: 8942405292343689846
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4647896823045539548
+          m_Value1: 17698536543708215476
+        Name: WaitToFloat
+        m_Value: 5
+    - rid: 8942405292343689847
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2619374478945279358
+          m_Value1: 3375756279911920542
+        Name: Walk Rotation Speed
+        m_Value: 720
+    - rid: 8942405292343689848
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13349239447654716284
+          m_Value1: 9758242550833529284
+        Name: Walk Acceleration
+        m_Value: 10

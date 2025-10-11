@@ -1,15 +1,30 @@
+using Unity.Behavior;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAudioManager : MonoBehaviour
 {
     private AudioSource _audioSource;
 
+    private NavMeshAgent _agent;
+
     [SerializeField]
     private AudioSource _audioSource2;
+
+    [Header("Choose between state or behavior graph")]
+    [SerializeField]
     private EnemyStateManager _enemyStateManager;
 
     [SerializeField]
-    private AudioClip[] _walkingFootStepsAudioClips, _runningFootStepsAudioClips;
+    private BehaviorGraphAgent _behaviorGraphAgent;
+
+    [Header("Speeds")]
+    [SerializeField] private float walkSpeed;
+    [SerializeField] private float runSpeed;
+
+    [Header("AudioClips")]
+    [SerializeField] private AudioClip[] _walkingFootStepsAudioClips;
+    [SerializeField] private AudioClip[] _runningFootStepsAudioClips;
 
     [SerializeField]
     private AudioClip _chaseSignalAudioClip;
@@ -23,7 +38,7 @@ public class EnemyAudioManager : MonoBehaviour
     void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
-        _enemyStateManager = GetComponent<EnemyStateManager>();
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     private void Start()
@@ -38,50 +53,78 @@ public class EnemyAudioManager : MonoBehaviour
         }
     }
 
+    
     private void OnEnable()
     {
-        _enemyStateManager.onStateChanged += EnemyStateManager_OnStateChanged;
+        if(_enemyStateManager != null)
+            _enemyStateManager.onStateChanged += EnemyStateManager_OnStateChanged;
     }
 
     private void OnDisable()
     {
-        _enemyStateManager.onStateChanged -= EnemyStateManager_OnStateChanged;
+        if(_enemyStateManager != null)
+            _enemyStateManager.onStateChanged -= EnemyStateManager_OnStateChanged;
     }
 
     private void EnemyStateManager_OnStateChanged()
     {
         if(!_hasChasePlayed)
         {
-            if (_enemyStateManager.CheckStateWithState(_enemyStateManager.chaseState))
+            if(_enemyStateManager != null)
             {
-                if (_chaseSignalAudioClip)
+                if (_enemyStateManager.CheckStateWithState(_enemyStateManager.chaseState))
                 {
-                    _audioSource.PlayOneShot(_chaseSignalAudioClip);
-                    _hasChasePlayed = true;
+                    if (_chaseSignalAudioClip != null)
+                    {
+                        _audioSource.PlayOneShot(_chaseSignalAudioClip);
+                        _hasChasePlayed = true;
+                    }
                 }
             }
         }
         else
         {
-            if(_enemyStateManager.CheckStateWithState(_enemyStateManager.roamState))
+            if(_enemyStateManager != null)
             {
-                _hasChasePlayed = false;
+                if (_enemyStateManager.CheckStateWithState(_enemyStateManager.roamState))
+                {
+                    _hasChasePlayed = false;
+                }
             }
+        }
+    }
+    
+
+    private void CallChaseSignal()
+    {
+        if (_chaseSignalAudioClip != null)
+        {
+            _audioSource.PlayOneShot(_chaseSignalAudioClip);
+            _hasChasePlayed = true;
         }
     }
 
     public void PlayStepSound()
     {
+        float halfSpeedOfRunCal = (runSpeed - walkSpeed) / 2;
+        float halfRunSpeed = walkSpeed + halfSpeedOfRunCal;
+
+        float walkSpeedHalf = walkSpeed / 2;
+
         if(_walkingFootStepsAudioClips != null &&
             _runningFootStepsAudioClips != null)
         {
-            if(_enemyStateManager.CheckStateWithState(_enemyStateManager.chaseState))
+            if(_agent.velocity.normalized.magnitude < halfRunSpeed)
             {
                 PlayRunningFootSteps();
             }
-            else if(_enemyStateManager.CheckStateWithState(_enemyStateManager.roamState))
+            else if(_agent.velocity.normalized.magnitude < walkSpeedHalf)
             {
                 PlayWalkingFootSteps();
+            }
+            else
+            {
+
             }
         }
     }

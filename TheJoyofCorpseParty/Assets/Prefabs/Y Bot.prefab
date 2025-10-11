@@ -652,8 +652,6 @@ MonoBehaviour:
   m_MinTimeToRoamToNextLocation: 0.5
   m_MaxTimeToRoamToNextLocation: 5
   m_ExposureTime: 1.1
-  m_Destinations: []
-  m_RootListDestinations: {fileID: 0}
 --- !u!65 &422969641722896615
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -709,6 +707,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource2: {fileID: 7117806185816283609}
+  _enemyStateManager: {fileID: 6240987760326508209}
+  _behaviorGraphAgent: {fileID: 0}
+  walkSpeed: 3
+  runSpeed: 13
   _walkingFootStepsAudioClips:
   - {fileID: 8300000, guid: 5e265270fb85126479eef52d8fce3b08, type: 3}
   - {fileID: 8300000, guid: 65507879ee055e648b1de3581c284cca, type: 3}
@@ -932,3 +934,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f7bb3edc0280824d991bf7b662d894e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Destinations: []
+  m_RootListDestinations: {fileID: 0}
