@@ -78376,6 +78376,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1146350493514862118, guid: e02ceca902dbbcf40b655cba87d49009, type: 3}
+      propertyPath: 'managedReferences[8942405293050430279]'
+      value: 'Unity.Behavior Unity.Behavior.BlackboardVariable`1[[System.Single,
+        mscorlib]]'
+      objectReference: {fileID: 0}
+    - target: {fileID: -1146350493514862118, guid: e02ceca902dbbcf40b655cba87d49009, type: 3}
+      propertyPath: managedReferences[8942405293050430279].Name
+      value: WaitToThink
+      objectReference: {fileID: 0}
+    - target: {fileID: -1146350493514862118, guid: e02ceca902dbbcf40b655cba87d49009, type: 3}
+      propertyPath: m_BlackboardVariableOverridesList.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1146350493514862118, guid: e02ceca902dbbcf40b655cba87d49009, type: 3}
+      propertyPath: managedReferences[8942405293050430279].m_Value
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1146350493514862118, guid: e02ceca902dbbcf40b655cba87d49009, type: 3}
+      propertyPath: 'm_BlackboardVariableOverridesList.Array.data[6]'
+      value: 8942405293050430279
+      objectReference: {fileID: 0}
+    - target: {fileID: -1146350493514862118, guid: e02ceca902dbbcf40b655cba87d49009, type: 3}
+      propertyPath: managedReferences[8942405293050430279].GUID.m_Value0
+      value: 14368749945965027202
+      objectReference: {fileID: 0}
+    - target: {fileID: -1146350493514862118, guid: e02ceca902dbbcf40b655cba87d49009, type: 3}
+      propertyPath: managedReferences[8942405293050430279].GUID.m_Value1
+      value: 6290156436850257565
+      objectReference: {fileID: 0}
     - target: {fileID: 406164740724626342, guid: e02ceca902dbbcf40b655cba87d49009, type: 3}
       propertyPath: m_RootListDestinations
       value: 

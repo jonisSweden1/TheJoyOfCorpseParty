@@ -559,6 +559,9 @@ PrefabInstance:
       addedObject: {fileID: 7943165153532123443}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       insertIndex: -1
+      addedObject: {fileID: -1146350493514862118}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 4279476668333053631}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       insertIndex: -1
@@ -578,9 +581,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       insertIndex: -1
       addedObject: {fileID: 406164740724626342}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: -1146350493514862118}
   m_SourcePrefab: {fileID: 100100000, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
 --- !u!4 &421540534323454632 stripped
 Transform:
@@ -614,6 +614,79 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-1146350493514862118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189674550115004031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: -6850665979810792133, guid: 823362695a502e24094006d0bedfc28c, type: 2}
+  m_BlackboardVariableOverridesList:
+  - rid: 8942405278641946938
+  - rid: 8942405292343689844
+  - rid: 8942405292343689845
+  - rid: 8942405292343689846
+  - rid: 8942405292343689847
+  - rid: 8942405292343689848
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8942405278641946938
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 8189674550115004031}
+    - rid: 8942405292343689844
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 14775020572685111356
+          m_Value1: 15896084091435001097
+        Name: Walk speed
+        m_Value: 3
+    - rid: 8942405292343689845
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 15963295522931093357
+          m_Value1: 252221496979776317
+        Name: WaitFromFloat
+        m_Value: 0.5
+    - rid: 8942405292343689846
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4647896823045539548
+          m_Value1: 17698536543708215476
+        Name: WaitToFloat
+        m_Value: 5
+    - rid: 8942405292343689847
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 2619374478945279358
+          m_Value1: 3375756279911920542
+        Name: Walk Rotation Speed
+        m_Value: 720
+    - rid: 8942405292343689848
+      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 13349239447654716284
+          m_Value1: 9758242550833529284
+        Name: Walk Acceleration
+        m_Value: 10
 --- !u!114 &4279476668333053631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,76 +986,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Destinations: []
   m_RootListDestinations: {fileID: 0}
---- !u!114 &-1146350493514862118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8189674550115004031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Graph: {fileID: -6850665979810792133, guid: 823362695a502e24094006d0bedfc28c, type: 2}
-  m_BlackboardVariableOverridesList:
-  - rid: 8942405278641946938
-  - rid: 8942405292343689844
-  - rid: 8942405292343689845
-  - rid: 8942405292343689846
-  - rid: 8942405292343689847
-  - rid: 8942405292343689848
-  m_IsInitialised: 0
-  m_IsStarted: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 8942405278641946938
-      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 1
-          m_Value1: 0
-        Name: Self
-        m_Value: {fileID: 8189674550115004031}
-    - rid: 8942405292343689844
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 14775020572685111356
-          m_Value1: 15896084091435001097
-        Name: Walk speed
-        m_Value: 3
-    - rid: 8942405292343689845
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 15963295522931093357
-          m_Value1: 252221496979776317
-        Name: WaitFromFloat
-        m_Value: 0.5
-    - rid: 8942405292343689846
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 4647896823045539548
-          m_Value1: 17698536543708215476
-        Name: WaitToFloat
-        m_Value: 5
-    - rid: 8942405292343689847
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 2619374478945279358
-          m_Value1: 3375756279911920542
-        Name: Walk Rotation Speed
-        m_Value: 720
-    - rid: 8942405292343689848
-      type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
-      data:
-        GUID:
-          m_Value0: 13349239447654716284
-          m_Value1: 9758242550833529284
-        Name: Walk Acceleration
-        m_Value: 10
