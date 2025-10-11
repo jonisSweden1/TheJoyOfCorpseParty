@@ -4,16 +4,17 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(AgentMovement))]
-[RequireComponent(typeof(EnemyDetectionSystem))]
+[RequireComponent(typeof(EnemyVisionDetection))]
 public class EnemyStateManager : MonoBehaviour
 {
-    public EnemyDetectionSystem m_Enemy_Detection_System {  get; private set; }
+    public EnemyVisionDetection m_Enemy_Detection_System {  get; private set; }
     public EnemyNavigationSystem m_Enemy_Navigation_System { get; private set; }
 
     public EnemyIdleState idleState;
     public EnemyRoamState roamState;
     public EnemySeekState seekState;
-    public EnemyChaseState chaseState;
+    public EnemyChasePlayerState chasePlayerState;
+    public EnemyChaseTargetState chaseTargetState;
 
     EnemyBaseState _currentState;
 
@@ -51,13 +52,14 @@ public class EnemyStateManager : MonoBehaviour
 
     void Awake()
     {
-        m_Enemy_Detection_System = GetComponent<EnemyDetectionSystem>();
+        m_Enemy_Detection_System = GetComponent<EnemyVisionDetection>();
         m_Enemy_Navigation_System = GetComponent<EnemyNavigationSystem>();
 
         idleState = new EnemyIdleState();
         roamState = new EnemyRoamState();
         seekState = new EnemySeekState();
-        chaseState = new EnemyChaseState();
+        chasePlayerState = new EnemyChasePlayerState();
+        chaseTargetState = new EnemyChaseTargetState();
     }
 
     private void Start()

@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(EnemyDetectionSystem))]
-public class EnemyDetectionSystemEditor : Editor
+[CustomEditor(typeof(EnemyVisionDetection))]
+public class EnemyVisionDetectionEditor : Editor
 {
     private void OnSceneGUI()
     {
-        EnemyDetectionSystem _eds = (EnemyDetectionSystem)target;
+        EnemyVisionDetection _eds = (EnemyVisionDetection)target;
 
         if(_eds.headPosition == null)
         {
@@ -25,7 +25,7 @@ public class EnemyDetectionSystemEditor : Editor
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
     }
 
-    private void DrawInHead(EnemyDetectionSystem eds)
+    private void DrawInHead(EnemyVisionDetection eds)
     {
         Handles.color = Color.white;
         Handles.DrawWireArc(eds.headPosition.position, Vector3.up, Vector3.forward, 360, eds.radius);
@@ -46,7 +46,7 @@ public class EnemyDetectionSystemEditor : Editor
         }
     }
 
-    private void DrawOnFeet(EnemyDetectionSystem eds)
+    private void DrawOnFeet(EnemyVisionDetection eds)
     {
         Handles.color = Color.white;
         Handles.DrawWireArc(eds.transform.position, Vector3.up, Vector3.forward, 360, eds.radius);

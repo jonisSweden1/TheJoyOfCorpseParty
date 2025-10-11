@@ -72,7 +72,7 @@ public class EnemyAudioManager : MonoBehaviour
         {
             if(_enemyStateManager != null)
             {
-                if (_enemyStateManager.CheckStateWithState(_enemyStateManager.chaseState))
+                if (_enemyStateManager.CheckStateWithState(_enemyStateManager.chasePlayerState))
                 {
                     if (_chaseSignalAudioClip != null)
                     {
@@ -94,7 +94,7 @@ public class EnemyAudioManager : MonoBehaviour
         }
     }
     
-
+    /*
     private void CallChaseSignal()
     {
         if (_chaseSignalAudioClip != null)
@@ -103,6 +103,7 @@ public class EnemyAudioManager : MonoBehaviour
             _hasChasePlayed = true;
         }
     }
+    */
 
     public void PlayStepSound()
     {

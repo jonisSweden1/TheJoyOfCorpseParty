@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyChaseState : EnemyBaseState
+public class EnemyChasePlayerState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager stateManager)
     {

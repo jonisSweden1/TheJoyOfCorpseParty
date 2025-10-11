@@ -35,7 +35,7 @@ public class EnemySeekState : EnemyBaseState
             if (time >= stateManager.m_ExposureTime)
             {
                 savedTime = time;
-                stateManager.SwitchState(stateManager.chaseState);
+                stateManager.SwitchState(stateManager.chasePlayerState);
             }
         }
         else if(time > 0)
