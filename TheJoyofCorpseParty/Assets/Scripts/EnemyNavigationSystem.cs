@@ -74,7 +74,9 @@ public class EnemyNavigationSystem : MonoBehaviour
             }
         }
 
-        m_Agent.SetDestination(Destinations[rndIndex].position);
+        m_Agent.SetDestinationImmediate(
+            Destinations[rndIndex].position,
+            m_Agent.radius + m_Agent.stoppingDistance + m_Agent.height);
 
         previousDestinationIndex = rndIndex;
     }
@@ -85,7 +87,9 @@ public class EnemyNavigationSystem : MonoBehaviour
         m_Agent.angularSpeed = angularSpeed;
         m_Agent.acceleration = acceleration;
 
-        m_Agent.SetDestination(dest.position);
+        m_Agent.SetDestinationImmediate(
+            dest.position, 
+            m_Agent.radius + m_Agent.stoppingDistance + m_Agent.height);
     }
 
     public bool CheckNavigationFinished()
