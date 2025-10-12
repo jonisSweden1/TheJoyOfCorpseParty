@@ -649,7 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_WalkSpeed: 3
   m_WalkAngularSpeed: 720
-  m_RunSpeed: 13
+  m_RunSpeed: 11
   m_RunAngularSpeed: 1440
   m_WalkAcceleration: 10
   m_RunAcceleration: 18
