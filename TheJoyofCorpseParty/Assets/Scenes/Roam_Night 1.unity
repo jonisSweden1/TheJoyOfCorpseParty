@@ -78156,6 +78156,7 @@ MonoBehaviour:
   m_Script: {fileID: 1361723897}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &751240593
 Transform:
   m_ObjectHideFlags: 19
@@ -156526,6 +156527,7 @@ MonoBehaviour:
   m_Script: {fileID: 1603274651}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1277024530
 Transform:
   m_ObjectHideFlags: 19
@@ -164809,6 +164811,10 @@ PrefabInstance:
       propertyPath: m_RootListDestinations
       value: 
       objectReference: {fileID: 1573463276}
+    - target: {fileID: 3174032666872049343, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6240987760326508209, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
       propertyPath: m_RootListDestinations
       value: 
@@ -224745,6 +224751,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1805510101 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6240987760326508209, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
+  m_PrefabInstance: {fileID: 1336838468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 764014d0d67aae8449d1f7b57814ba90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1805892886
 Mesh:
   m_ObjectHideFlags: 0
@@ -263388,6 +263405,67 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &2068881431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068881433}
+  - component: {fileID: 2068881432}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2068881432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068881431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e455f6dcd1c0c47a0ee50d7f7e0c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invokeOnce: 1
+  m_Duration: 40
+  Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1805510101}
+        m_TargetAssemblyTypeName: EnemyStateManager, Assembly-CSharp
+        m_MethodName: AwakePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &2068881433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068881431}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -42.5286, y: 10.821492, z: 1.2075512}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &2069330752
 Mesh:
   m_ObjectHideFlags: 0
@@ -272861,3 +272939,4 @@ SceneRoots:
   - {fileID: 751240593}
   - {fileID: 1432401033}
   - {fileID: 189630567}
+  - {fileID: 2068881433}

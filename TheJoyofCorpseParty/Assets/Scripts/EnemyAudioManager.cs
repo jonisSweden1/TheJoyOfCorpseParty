@@ -30,7 +30,10 @@ public class EnemyAudioManager : MonoBehaviour
     private AudioClip _chaseSignalAudioClip;
 
     [SerializeField]
-    private AudioClip _playAmbienceSound;
+    private AudioClip _machineSound;
+
+    [SerializeField]
+    private AudioClip _startMachineSound;
 
     private bool _hasChasePlayed;
 
@@ -45,11 +48,14 @@ public class EnemyAudioManager : MonoBehaviour
     {
         _hasChasePlayed = false;
 
-        if( _audioSource2 != null )
+        if(_enemyStateManager.IsAwake)
         {
-            _audioSource2.clip = _playAmbienceSound;
-            _audioSource2.loop = true;
-            _audioSource2.Play();
+            if (_audioSource2 != null)
+            {
+                _audioSource2.clip = _machineSound;
+                _audioSource2.loop = true;
+                _audioSource2.Play();
+            }
         }
     }
 
@@ -68,6 +74,14 @@ public class EnemyAudioManager : MonoBehaviour
 
     private void EnemyStateManager_OnStateChanged()
     {
+        if(_enemyStateManager.CheckStateWithState(_enemyStateManager.wakeState))
+        {
+            if (_audioSource2 != null)
+            {
+
+            }
+        }
+
         if(!_hasChasePlayed)
         {
             if(_enemyStateManager != null)

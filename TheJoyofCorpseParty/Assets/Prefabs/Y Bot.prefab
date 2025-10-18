@@ -587,12 +587,57 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5191589993316076769}
+    - targetCorrespondingSourceObject: {fileID: 2898355158428612036, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2877639507090839060}
+    - targetCorrespondingSourceObject: {fileID: 2898355158428612036, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2702736782779086307}
   m_SourcePrefab: {fileID: 100100000, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
 --- !u!4 &421540534323454632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8700783698680967558, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
   m_PrefabInstance: {fileID: 9036182712861610798}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6151915871866103530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2898355158428612036, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
+  m_PrefabInstance: {fileID: 9036182712861610798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2877639507090839060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151915871866103530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b11b73c02141d41a7f8b14d54ac14c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &2702736782779086307
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151915871866103530}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1d8c5ba9ee40e2046b261891ffaaee60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8189674550115004031 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0c58b83ece7e06f4099d624549862998, type: 3}
@@ -647,6 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764014d0d67aae8449d1f7b57814ba90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _eyesAnimators: {fileID: 2877639507090839060}
+  _isAwake: 0
   m_WalkSpeed: 3
   m_WalkAngularSpeed: 720
   m_RunSpeed: 11
@@ -716,7 +763,7 @@ MonoBehaviour:
   _enemyStateManager: {fileID: 6240987760326508209}
   _behaviorGraphAgent: {fileID: 0}
   walkSpeed: 3
-  runSpeed: 13
+  runSpeed: 11
   _walkingFootStepsAudioClips:
   - {fileID: 8300000, guid: 5e265270fb85126479eef52d8fce3b08, type: 3}
   - {fileID: 8300000, guid: 65507879ee055e648b1de3581c284cca, type: 3}
@@ -733,7 +780,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 72b37684ac7a413499d259a0a9be50e6, type: 3}
   - {fileID: 8300000, guid: b16b005ddc0977b4aa402b5abce3205f, type: 3}
   _chaseSignalAudioClip: {fileID: 8300000, guid: b71561dd2ad994240b14d72921afb45c, type: 3}
-  _playAmbienceSound: {fileID: 8300000, guid: 77a2266c65277514394bceaab49f0ab0, type: 3}
+  _machineSound: {fileID: 0}
+  _startMachineSound: {fileID: 0}
 --- !u!82 &928342590682177121
 AudioSource:
   m_ObjectHideFlags: 0
