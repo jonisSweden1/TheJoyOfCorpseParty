@@ -20,15 +20,15 @@ public class EnemyChasePlayerState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager stateManager)
     {
-        if(stateManager.m_Enemy_Detection_System.CanSeePlayer)
+        if(stateManager.m_EnemyVisionDetection.CanSeePlayer)
         {
-            Transform playerTransform = stateManager.m_Enemy_Detection_System.PlayerRef.transform;
-            stateManager.m_Enemy_Navigation_System.SetDestination(playerTransform, 
+            Transform playerTransform = stateManager.m_EnemyVisionDetection.PlayerRef.transform;
+            stateManager.m_EnemyNavigationSystem.SetDestination(playerTransform, 
                 stateManager.m_RunSpeed, 
                 stateManager.m_RunAngularSpeed, 
                 stateManager.m_RunAcceleration);
         }
-        else if(stateManager.m_Enemy_Navigation_System.CheckNavigationFinished())
+        else if(stateManager.m_EnemyNavigationSystem.CheckNavigationFinished())
         {
             stateManager.SwitchState(stateManager.realizationPlayerState);
         }

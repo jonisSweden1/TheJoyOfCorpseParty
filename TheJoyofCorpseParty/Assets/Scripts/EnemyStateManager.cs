@@ -7,10 +7,11 @@ using UnityEngine.AI;
 [RequireComponent(typeof(EnemyVisionDetection))]
 public class EnemyStateManager : MonoBehaviour
 {
-    public EnemyVisionDetection m_Enemy_Detection_System {  get; private set; }
-    public EnemyNavigationSystem m_Enemy_Navigation_System { get; private set; }
+    public EnemyVisionDetection m_EnemyVisionDetection {  get; private set; }
+    public EnemyNavigationSystem m_EnemyNavigationSystem { get; private set; }
     public AgentMovement agentMovement { get; private set; }
     public Animator m_Animator { get; private set; }
+    public EnemySoundDetection m_EnemySoundDetection { get; private set; }
 
     public LightEyesAnimators EyesAnimators { 
         get { return _eyesAnimators; } 
@@ -71,11 +72,12 @@ public class EnemyStateManager : MonoBehaviour
     void Awake()
     {
         //Get components
-        m_Enemy_Detection_System = GetComponent<EnemyVisionDetection>();
-        m_Enemy_Navigation_System = GetComponent<EnemyNavigationSystem>();
+        m_EnemyVisionDetection = GetComponent<EnemyVisionDetection>();
+        m_EnemyNavigationSystem = GetComponent<EnemyNavigationSystem>();
+        m_EnemySoundDetection = GetComponent<EnemySoundDetection>();
         m_Animator = GetComponent<Animator>();
-        agentMovement = GetComponent<AgentMovement>();
         
+        agentMovement = GetComponent<AgentMovement>();
 
         //Initialize the states
         sleepState = new EnemySleepState();
@@ -111,12 +113,12 @@ public class EnemyStateManager : MonoBehaviour
 
     void OnEnable()
     {
-        m_Enemy_Detection_System.m_OnDetected += TriggerRealization;
+        m_EnemyVisionDetection.m_OnDetected += TriggerRealization;
     }
 
     void OnDisable()
     {
-        m_Enemy_Detection_System.m_OnDetected -= TriggerRealization;
+        m_EnemyVisionDetection.m_OnDetected -= TriggerRealization;
     }
 
     // Update is called once per frame

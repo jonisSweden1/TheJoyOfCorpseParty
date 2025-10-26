@@ -11,7 +11,7 @@ public class EnemyRealizationPlayerState : EnemyBaseState
             time = savedTime;
         }
 
-        stateManager.m_Enemy_Navigation_System.StopNavigating();
+        stateManager.m_EnemyNavigationSystem.StopNavigating();
 
         Debug.Log("Seeking");
     }
@@ -28,7 +28,7 @@ public class EnemyRealizationPlayerState : EnemyBaseState
 
     public override void UpdateState(EnemyStateManager stateManager)
     {
-        if(stateManager.m_Enemy_Detection_System.CanSeePlayer)
+        if(stateManager.m_EnemyVisionDetection.CanSeePlayer)
         {
             time += Time.deltaTime;
 

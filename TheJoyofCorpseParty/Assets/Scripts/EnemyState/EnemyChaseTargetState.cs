@@ -4,8 +4,8 @@ public class EnemyChaseTargetState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager stateManager)
     {
-        stateManager.m_Enemy_Detection_System.angle = stateManager.m_ChaseAngleField;
-        stateManager.m_Enemy_Navigation_System.SetRandomDestination(stateManager.m_RunSpeed,
+        stateManager.m_EnemyVisionDetection.angle = stateManager.m_ChaseAngleField;
+        stateManager.m_EnemyNavigationSystem.SetRandomDestination(stateManager.m_RunSpeed,
         stateManager.m_RunAngularSpeed,
         stateManager.m_RunAcceleration);
     }

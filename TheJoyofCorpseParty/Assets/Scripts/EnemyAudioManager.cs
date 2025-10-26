@@ -36,6 +36,7 @@ public class EnemyAudioManager : MonoBehaviour
     private AudioClip _startMachineSound;
 
     private bool _hasChasePlayed;
+    private bool _hasAwaked;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -78,7 +79,10 @@ public class EnemyAudioManager : MonoBehaviour
         {
             if (_audioSource2 != null)
             {
-
+                if(!_hasAwaked)
+                {
+                    _audioSource2.PlayOneShot(_startMachineSound);
+                }
             }
         }
 

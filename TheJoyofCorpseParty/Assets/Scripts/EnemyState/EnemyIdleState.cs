@@ -7,7 +7,7 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void EnterState(EnemyStateManager stateManager)
     {
-        stateManager.m_Enemy_Detection_System.angle = stateManager.m_RoamAngleField;
+        stateManager.m_EnemyVisionDetection.angle = stateManager.m_RoamAngleField;
 
         _idleTime = stateManager.m_TimeToRoam;
     }
@@ -28,7 +28,7 @@ public class EnemyIdleState : EnemyBaseState
 
         if(_time >= _idleTime)
         {
-            if(!stateManager.m_Enemy_Navigation_System.CheckListDestinationsNotNull())
+            if(!stateManager.m_EnemyNavigationSystem.CheckListDestinationsNotNull())
             {
                 Debug.LogError("There is no destination, so it will not start roaming");
                 return;
