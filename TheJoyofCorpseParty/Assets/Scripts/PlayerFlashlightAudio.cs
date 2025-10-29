@@ -26,6 +26,7 @@ public class PlayerFlashlightAudio : MonoBehaviour
         if(m_FlashLightAudioClip != null)
         {
             m_AudioSource.PlayOneShot(m_FlashLightAudioClip);
+            HearingManager.instance.OnSoundEmitted(m_AudioSource, transform.position, EHeardSoundCategory.EFlashlight, 0.3f);
         }
     }
 

@@ -29,9 +29,9 @@ public class EnemySoundDetection : MonoBehaviour
             HearingManager.instance.Unregister(this);
     }
 
-    public void OnHeardSound(Vector3 location, EHeardSoundCategory category, float intensity)
+    public void OnHeardSound(AudioSource source, Vector3 location, EHeardSoundCategory category, float intensity)
     {
-        if(Vector3.Distance(location, _headTransform.position) < _hearingRange)
+        if(Vector3.Distance(location, _headTransform.position) < source.maxDistance)
         {
             onHeardSound.Invoke(category, intensity);
         }

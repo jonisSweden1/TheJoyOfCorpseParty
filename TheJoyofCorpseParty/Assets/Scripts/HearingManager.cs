@@ -4,8 +4,8 @@ using UnityEngine;
 public enum EHeardSoundCategory
 {
     EFootstep,
-    ESoft,
-    ELoud
+    EFlashlight,
+    EDistractionSound
 }
 
 public class HearingManager : MonoBehaviour
@@ -42,12 +42,12 @@ public class HearingManager : MonoBehaviour
         AllSensors.Remove(sensor);
     }
 
-    public void OnSoundEmitted(Vector3 location, EHeardSoundCategory category, float intensity)
+    public void OnSoundEmitted(AudioSource source, Vector3 location, EHeardSoundCategory category, float intensity)
     {
         //Notify all the sensors
         foreach(var sensor in AllSensors)
         {
-            sensor.OnHeardSound(location, category, intensity);
+            sensor.OnHeardSound(source, location, category, intensity);
         }
     }
 }

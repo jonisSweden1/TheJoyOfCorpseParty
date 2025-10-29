@@ -58,6 +58,7 @@ public class PlayerAudioManager : MonoBehaviour
                     {
                         int randIndex = Random.Range(0, _walkingFootStepAudioClips.Length - 1);
                         _audioSource.PlayOneShot(_walkingFootStepAudioClips[randIndex], crouchVolumeScale);
+                        HearingManager.instance.OnSoundEmitted(_audioSource, transform.position, EHeardSoundCategory.EFootstep, 0.1f);
                     }
 
                     time = 0;
@@ -73,6 +74,7 @@ public class PlayerAudioManager : MonoBehaviour
                     {
                         int randIndex = Random.Range(0, _runningFootStepAudioClips.Length - 1);
                         _audioSource.PlayOneShot(_runningFootStepAudioClips[randIndex], noCrouchVolumeScale);
+                        HearingManager.instance.OnSoundEmitted(_audioSource, transform.position, EHeardSoundCategory.EFootstep, 0.5f);
                     }
 
                     time = 0;
@@ -88,6 +90,7 @@ public class PlayerAudioManager : MonoBehaviour
                     {
                         int randIndex = Random.Range(0, _walkingFootStepAudioClips.Length - 1);
                         _audioSource.PlayOneShot(_walkingFootStepAudioClips[randIndex], noCrouchVolumeScale);
+                        HearingManager.instance.OnSoundEmitted(_audioSource, transform.position, EHeardSoundCategory.EFootstep, 0.8f);
                     }
                     time = 0;
                 }

@@ -69,6 +69,10 @@ public class EnemyStateManager : MonoBehaviour
 
     public event Action onStateChanged;
 
+    public EHeardSoundCategory SoundCategory { get; private set; }
+
+    public float SoundIntensity { get; private set; }
+
     void Awake()
     {
         //Get components
@@ -113,12 +117,21 @@ public class EnemyStateManager : MonoBehaviour
 
     void OnEnable()
     {
-        m_EnemyVisionDetection.m_OnDetected += TriggerRealization;
+        m_EnemyVisionDetection.m_OnDetected += TriggerRealizationVision;
+        m_EnemySoundDetection.onHeardSound += TriggerRealizationSound;
+    }
+
+    private void TriggerRealizationSound(EHeardSoundCategory category, float intensity)
+    {
+        SoundCategory = category;
+        SoundIntensity = intensity;
+
+        SwitchState(realizationTargetState);
     }
 
     void OnDisable()
     {
-        m_EnemyVisionDetection.m_OnDetected -= TriggerRealization;
+        m_EnemyVisionDetection.m_OnDetected -= TriggerRealizationVision;
     }
 
     // Update is called once per frame
@@ -133,7 +146,7 @@ public class EnemyStateManager : MonoBehaviour
             SwitchState(wakeState);
     }
 
-    private void TriggerRealization()
+    private void TriggerRealizationVision()
     {
         if(_isAwake)
             SwitchState(realizationPlayerState);
