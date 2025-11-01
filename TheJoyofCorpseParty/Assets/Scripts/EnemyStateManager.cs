@@ -69,6 +69,8 @@ public class EnemyStateManager : MonoBehaviour
 
     public event Action onStateChanged;
 
+    public bool isPlayerDetected = false;
+
     public EHeardSoundCategory SoundCategory { get; private set; }
 
     public float SoundIntensity { get; private set; }
@@ -126,7 +128,13 @@ public class EnemyStateManager : MonoBehaviour
         SoundCategory = category;
         SoundIntensity = intensity;
 
-        SwitchState(realizationTargetState);
+        if(_isAwake)
+        {
+            if(!isPlayerDetected)
+            {
+                SwitchState(realizationTargetState);
+            }
+        }
     }
 
     void OnDisable()

@@ -82,6 +82,11 @@ public class EnemyAudioManager : MonoBehaviour
                 if(!_hasAwaked)
                 {
                     _audioSource2.PlayOneShot(_startMachineSound);
+                    _hasAwaked = true;
+                }
+                else
+                {
+                    CheckAudioSourceAvailable();
                 }
             }
         }
@@ -109,6 +114,16 @@ public class EnemyAudioManager : MonoBehaviour
                     _hasChasePlayed = false;
                 }
             }
+        }
+    }
+
+    private void CheckAudioSourceAvailable()
+    {
+        if(!_audioSource2.isPlaying)
+        {
+            _audioSource2.clip = _machineSound;
+            _audioSource2.loop = true;
+            _audioSource2.Play();
         }
     }
     

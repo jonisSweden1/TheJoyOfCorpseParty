@@ -19,6 +19,7 @@ public class EnemyRealizationPlayerState : EnemyBaseState
     public override void ExitState(EnemyStateManager stateManager)
     {
         time = 0;
+        stateManager.isPlayerDetected = false;
     }
 
     public override void OnTriggerEnterState(Collider other, EnemyStateManager stateManager)
@@ -30,6 +31,8 @@ public class EnemyRealizationPlayerState : EnemyBaseState
     {
         if(stateManager.m_EnemyVisionDetection.CanSeePlayer)
         {
+            stateManager.isPlayerDetected = true;
+
             time += Time.deltaTime;
 
             if (time >= stateManager.m_ExposureTime)
@@ -40,6 +43,8 @@ public class EnemyRealizationPlayerState : EnemyBaseState
         }
         else if(time > 0)
         {
+            stateManager.isPlayerDetected = false;
+
             time -= Time.deltaTime;
         }
         else
