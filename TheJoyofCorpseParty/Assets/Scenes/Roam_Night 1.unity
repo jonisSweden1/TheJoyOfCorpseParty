@@ -164852,6 +164852,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6240987760326508209, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
+      propertyPath: _isAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240987760326508209, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
       propertyPath: m_RootListDestinations
       value: 
       objectReference: {fileID: 1573463276}
