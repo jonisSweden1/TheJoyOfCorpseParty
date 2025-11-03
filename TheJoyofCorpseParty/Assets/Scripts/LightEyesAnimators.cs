@@ -9,6 +9,11 @@ public class LightEyesAnimators : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    public void TurnOnLightsStart()
+    {
+        _animator.Play("EyesLightOn", 0);
+    }
+
     public void TurnOnLights()
     {
         _animator.SetTrigger("Awake");

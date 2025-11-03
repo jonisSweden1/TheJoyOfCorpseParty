@@ -5,8 +5,13 @@ public class HeadBobController : MonoBehaviour
 {
     [SerializeField] private bool _enable = true;
 
-    [SerializeField, Range(0, 0.1f)] private float _amplitude = 0.015f;
-    [SerializeField, Range(0, 30)] private float _frequency = 10.0f;
+    private float _amplitude = 0.015f;
+    private float _frequency = 10.0f;
+
+    [SerializeField, Range(0, 0.1f)] private float _walkAmplitude = 0.015f;
+    [SerializeField, Range(0, 0.1f)] private float _runningAmplitude = 0.015f;
+    [SerializeField, Range(0, 30)] private float _walkFrequency = 10.0f;
+    [SerializeField, Range(0, 30)] private float _runningFrequency = 20.0f;
 
     [SerializeField] private Transform _camera = null;
     [SerializeField] private Transform _cameraHolder = null;
@@ -14,11 +19,13 @@ public class HeadBobController : MonoBehaviour
     private float _toggleSpeed = 3.0f;
     private Vector3 _startPos;
     private Rigidbody _rb;
+    private PlayerMovement movement;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _startPos = _camera.localPosition;
+        movement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -26,7 +33,21 @@ public class HeadBobController : MonoBehaviour
     {
         if (!_enable) return;
 
-        CheckMotion();
+        MovementState currentState = movement.currentState;
+
+        if(currentState == MovementState.sprinting)
+        {
+            _amplitude = _runningAmplitude;
+            _frequency = _runningFrequency;
+        }
+        else if(currentState == MovementState.walking)
+        {
+            _amplitude = _walkAmplitude;
+            _frequency = _walkFrequency;
+        }
+
+
+            CheckMotion();
         ResetPosition();
         _camera.LookAt(FocusTarget());
     }
