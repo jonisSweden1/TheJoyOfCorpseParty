@@ -230875,6 +230875,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     fieldOfView: 60
+--- !u!4 &1864086963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3217104605067769662, guid: 6e3dec70cc5637f499154d89f230491e, type: 3}
+  m_PrefabInstance: {fileID: 3994933181388306749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1865543916
 GameObject:
   m_ObjectHideFlags: 0
@@ -272875,6 +272880,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e3dec70cc5637f499154d89f230491e, type: 3}
+--- !u!4 &3994933181388306751 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8391580836729700359, guid: 6e3dec70cc5637f499154d89f230491e, type: 3}
+  m_PrefabInstance: {fileID: 3994933181388306749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &3994933181388306755 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 1534741720677434995, guid: 6e3dec70cc5637f499154d89f230491e, type: 3}
@@ -272956,6 +272966,42 @@ PrefabInstance:
       propertyPath: m_Parameters.widthMultiplier
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8448127986752219350, guid: 03dea6abbc5a07a439038098f8d97002, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448127986752219350, guid: 03dea6abbc5a07a439038098f8d97002, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.638
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448127986752219350, guid: 03dea6abbc5a07a439038098f8d97002, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.372
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448127986752219350, guid: 03dea6abbc5a07a439038098f8d97002, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448127986752219350, guid: 03dea6abbc5a07a439038098f8d97002, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8448127986752219350, guid: 03dea6abbc5a07a439038098f8d97002, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994769229791990793, guid: 03dea6abbc5a07a439038098f8d97002, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 3994933181388306751}
+    - target: {fileID: 8994769229791990793, guid: 03dea6abbc5a07a439038098f8d97002, type: 3}
+      propertyPath: _frequency
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994769229791990793, guid: 03dea6abbc5a07a439038098f8d97002, type: 3}
+      propertyPath: _cameraHolder
+      value: 
+      objectReference: {fileID: 1864086963}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects: []
