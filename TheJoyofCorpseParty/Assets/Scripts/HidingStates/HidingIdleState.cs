@@ -22,13 +22,13 @@ public class HidingIdleState : HidingBaseState
     public override void EnterState(HidingStateManager stateManager)
     {
         stateManager.playerCamInfo.transform.localPosition = Vector3.zero;
-        stateManager.playerCamInfo.GetComponent<PlayerCameraController>().enabled = true;
+        stateManager.PlayerCamHolderInfo.GetComponent<PlayerCameraController>().enabled = true;
         stateManager.playerInfo.SetActive(true);
     }
 
     public override void ExitState(HidingStateManager stateManager)
     {
-        stateManager.playerCamInfo.GetComponent<PlayerCameraController>().enabled = false;
+        stateManager.PlayerCamHolderInfo.GetComponent<PlayerCameraController>().enabled = false;
         stateManager.playerInfo.SetActive(false);
     }
 

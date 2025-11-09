@@ -19,6 +19,8 @@ public class HidingStateManager : MonoBehaviour
 
     public Camera playerCamInfo { get {  return playerCam; } }
 
+    public Transform PlayerCamHolderInfo { get { return playerCam.transform.parent; } }
+
     public GameObject playerInfo { get { return player; } }
 
     [SerializeField]
