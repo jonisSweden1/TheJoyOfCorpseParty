@@ -92,6 +92,17 @@ public class EnemyNavigationSystem : MonoBehaviour
             m_Agent.radius + m_Agent.stoppingDistance + m_Agent.height);
     }
 
+    public void SetDestination(Vector3 destPos, float speed = 1, float angularSpeed = 720, float acceleration=8)
+    {
+        m_Agent.speed = speed;
+        m_Agent.angularSpeed = angularSpeed;
+        m_Agent.acceleration = acceleration;
+
+        m_Agent.SetDestinationImmediate(
+            destPos,
+            m_Agent.radius + m_Agent.stoppingDistance + m_Agent.height);
+    }
+
     public bool CheckNavigationFinished()
     {
         if (m_Agent.pathStatus == NavMeshPathStatus.PathComplete && m_Agent.remainingDistance <= m_Agent.stoppingDistance)

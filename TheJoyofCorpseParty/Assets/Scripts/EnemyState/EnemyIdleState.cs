@@ -11,6 +11,8 @@ public class EnemyIdleState : EnemyBaseState
 
         stateManager.isPlayerDetected = false;
 
+        stateManager.isSoundDetected = false;
+
         stateManager.m_EnemyVisionDetection.angle = stateManager.m_RoamAngleField;
 
         _idleTime = stateManager.m_TimeToRoam;

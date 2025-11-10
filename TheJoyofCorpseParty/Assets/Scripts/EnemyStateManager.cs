@@ -69,11 +69,17 @@ public class EnemyStateManager : MonoBehaviour
 
     public event Action onStateChanged;
 
+    [HideInInspector]
     public bool isPlayerDetected = false;
+
+    [HideInInspector]
+    public bool isSoundDetected = false;
 
     public EHeardSoundCategory SoundCategory { get; private set; }
 
     public float SoundIntensity { get; private set; }
+
+    public Vector3 DetectionPosition { get; private set; }
 
     void Awake()
     {
@@ -123,16 +129,21 @@ public class EnemyStateManager : MonoBehaviour
         m_EnemySoundDetection.onHeardSound += TriggerRealizationSound;
     }
 
-    private void TriggerRealizationSound(EHeardSoundCategory category, float intensity)
+    private void TriggerRealizationSound(Vector3 position, EHeardSoundCategory category, float intensity)
     {
         SoundCategory = category;
         SoundIntensity = intensity;
+
+        DetectionPosition = position;
 
         if(_isAwake)
         {
             if(!isPlayerDetected)
             {
-                SwitchState(realizationTargetState);
+                if(!isSoundDetected)
+                {
+                    SwitchState(realizationTargetState);
+                }
             }
         }
     }

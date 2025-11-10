@@ -9,7 +9,7 @@ public class EnemySoundDetection : MonoBehaviour
     [SerializeField]
     private Transform _headTransform;
 
-    public event Action<EHeardSoundCategory, float> onHeardSound;
+    public event Action<Vector3, EHeardSoundCategory, float> onHeardSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,9 +31,9 @@ public class EnemySoundDetection : MonoBehaviour
 
     public void OnHeardSound(AudioSource source, Vector3 location, EHeardSoundCategory category, float intensity)
     {
-        if(Vector3.Distance(location, _headTransform.position) < source.maxDistance)
+        if(Vector3.Distance(location, _headTransform.position) < _hearingRange)
         {
-            onHeardSound.Invoke(category, intensity);
+            onHeardSound.Invoke(location, category, intensity);
         }
     }
 }

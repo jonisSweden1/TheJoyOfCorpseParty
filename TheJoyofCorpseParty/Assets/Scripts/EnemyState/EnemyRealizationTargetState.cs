@@ -18,6 +18,8 @@ public class EnemyRealizationTargetState : EnemyBaseState
 
         _time = 0;
 
+        stateManager.isSoundDetected = true;
+
         CalculateTime();
     }
 
@@ -37,11 +39,11 @@ public class EnemyRealizationTargetState : EnemyBaseState
 
         if(_time >= _toTime)
         {
-            if(_intensity < 1.0)
+            if(_intensity > 0.4)
             {
                 stateManager.SwitchState(stateManager.chaseTargetState);
             }
-            else if(_intensity < 0.1)
+            else if(_intensity < 0.4)
             {
                 stateManager.SwitchState(stateManager.idleState);
             }
