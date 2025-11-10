@@ -3,6 +3,7 @@ using UnityEngine;
 
 public enum EHeardSoundCategory
 {
+    None,
     EFootstep,
     EFlashlight,
     EDistractionSound

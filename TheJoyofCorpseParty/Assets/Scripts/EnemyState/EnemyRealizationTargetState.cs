@@ -11,10 +11,18 @@ public class EnemyRealizationTargetState : EnemyBaseState
 
     public override void EnterState(EnemyStateManager stateManager)
     {
-        _category = stateManager.SoundCategory;
-        _intensity = stateManager.SoundIntensity;
+        if(!stateManager.isSoundDetected)
+        {
+            _category = stateManager.SoundCategory;
+            _intensity = stateManager.SoundIntensity;
+        }
+        else
+        {
+            _category = EHeardSoundCategory.None;
+            _intensity = 0.0f;
+        }
 
-        stateManager.m_EnemyNavigationSystem.StopNavigating();
+            stateManager.m_EnemyNavigationSystem.StopNavigating();
 
         _time = 0;
 
@@ -39,7 +47,7 @@ public class EnemyRealizationTargetState : EnemyBaseState
 
         if(_time >= _toTime)
         {
-            if(_intensity > 0.4)
+            if(_intensity > 0.41)
             {
                 stateManager.SwitchState(stateManager.chaseTargetState);
             }
@@ -47,14 +55,20 @@ public class EnemyRealizationTargetState : EnemyBaseState
             {
                 stateManager.SwitchState(stateManager.idleState);
             }
+            else if(_intensity < 0.0)
+            {
+
+            }
         }
     }
 
     private void CalculateTime()
     {
-        if (_intensity < 1.0)
+        if (_intensity > 0.31)
             _toTime = 0.5f;
-        else if (_intensity < 0.1)
+        else if (_intensity < 0.3)
             _toTime = 4.0f;
+        else if (_intensity < 0.0)
+            _toTime = 0.0f;
     }
 }

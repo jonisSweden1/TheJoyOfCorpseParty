@@ -12,7 +12,7 @@ public class EnemyChaseTargetState : EnemyBaseState
 
     public override void ExitState(EnemyStateManager stateManager)
     {
-        
+
     }
 
     public override void OnTriggerEnterState(Collider other, EnemyStateManager stateManager)
