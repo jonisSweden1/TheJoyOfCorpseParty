@@ -6,6 +6,8 @@ public class PlayerSecurityRoomController : MonoBehaviour
     [SerializeField]
     private InputActionReference navigationController;
 
+    [SerializeField] private InputActionReference openCloseCamera;
+
     [SerializeField]
     private float speedInNavigation = 0.0f;
 
