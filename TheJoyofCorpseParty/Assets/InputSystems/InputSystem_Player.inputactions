@@ -913,15 +913,6 @@
             "id": "50b3c241-1013-4456-947d-3ecc433eadd5",
             "actions": [
                 {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "1d8d2fdf-1fd7-4d6b-b9b4-06a9a4027540",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Look_Behind",
                     "type": "Button",
                     "id": "2d13ccab-79e0-4991-b611-7f5d50694fd3",
@@ -968,17 +959,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "f67b39e7-5d74-4936-a16f-ac153d313dbc",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "beaa8fe3-a090-4ab5-8194-868cb5c75383",

@@ -6,8 +6,6 @@ public class PlayerSecurityRoomController : MonoBehaviour
     [SerializeField]
     private InputActionReference navigationController;
 
-    [SerializeField] private InputActionReference openCloseCamera;
-
     [SerializeField]
     private float speedInNavigation = 0.0f;
 
@@ -33,13 +31,16 @@ public class PlayerSecurityRoomController : MonoBehaviour
 
     private void ActionLookBehindPerformed(InputAction.CallbackContext obj)
     {
-        if(_currentState == PlayerControllerState.Forward)
+        if(!CameraManager.instance.CheckOpenCam)
         {
-            _currentState = PlayerControllerState.Backward;
-        }
-        else
-        {
-            _currentState = PlayerControllerState.Forward;
+            if (_currentState == PlayerControllerState.Forward)
+            {
+                _currentState = PlayerControllerState.Backward;
+            }
+            else
+            {
+                _currentState = PlayerControllerState.Forward;
+            }
         }
     }
 

@@ -208964,6 +208964,7 @@ GameObject:
   - component: {fileID: 1702020565}
   - component: {fileID: 1702020564}
   - component: {fileID: 1702020568}
+  - component: {fileID: 1702020569}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -209197,8 +209198,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navigationController: {fileID: 8833824311323587020, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
-  openCloseCamera: {fileID: 4440401931025192087, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   speedInNavigation: 700
+--- !u!114 &1702020569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702020563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13fa024b537310c449c064d8c1da181c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpenCloseTabletAction: {fileID: 8833824311323587020, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
+  NextCamera: {fileID: -5395705941810596267, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
+  PrevCamera: {fileID: 6919730583327898350, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
 --- !u!1001 &1703733976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -249416,7 +249431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab44035d8b2b904ead967a49a78c40b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1702020566}
   monitorCameras:
   - cam: {fileID: 1477367736}
     light: {fileID: 586965709}

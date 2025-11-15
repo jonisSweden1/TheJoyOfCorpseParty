@@ -13,7 +13,9 @@ public class CameraManager : MonoBehaviour
 
     private bool onOpenCam = false;
 
-    public CameraManager instance;
+    public static CameraManager instance;
+
+    private int monitorCamCountIndex = 0;
 
     private void Awake()
     {
@@ -32,7 +34,7 @@ public class CameraManager : MonoBehaviour
     {
         if(monitorCameras != null)
         {
-            currentMonitorCam = monitorCameras[0];
+            currentMonitorCam = monitorCameras[monitorCamCountIndex];
             StartCoroutine(CheckAllCamera());
 
             if(!onOpenCam)
@@ -56,22 +58,46 @@ public class CameraManager : MonoBehaviour
         {
             mainCamera.enabled = false;
             EnableMonitorCamera(currentMonitorCam);
+            onOpenCam = true;
         }
     }
 
     public void CloseMonitorCam()
     {
-
+        if (mainCamera != null && monitorCameras != null)
+        {
+            mainCamera.enabled = true;
+            DisableMonitorCamera(currentMonitorCam);
+            onOpenCam = true;
+        }
     }
 
     public void ChangeToNextCamera()
     {
-        
+        monitorCamCountIndex++;
+
+        if(monitorCamCountIndex > monitorCameras.Length)
+        {
+            monitorCamCountIndex = 0;
+        }
+
+        EnableMonitorCamera(monitorCameras[monitorCamCountIndex]);
+
+        StartCoroutine(CheckAllCamera());
     }
 
     public void ChangeToPreviousCamera()
     {
+        monitorCamCountIndex--;
 
+        if(monitorCamCountIndex < 0)
+        {
+            monitorCamCountIndex = monitorCameras.Length - 1;
+        }
+
+        EnableMonitorCamera(monitorCameras[monitorCamCountIndex]);
+
+        StartCoroutine(CheckAllCamera());
     }
 
     void EnableMonitorCamera(CamInfo cam)
