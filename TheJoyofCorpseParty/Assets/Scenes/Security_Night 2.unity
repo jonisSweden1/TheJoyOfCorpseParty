@@ -209211,7 +209211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13fa024b537310c449c064d8c1da181c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OpenCloseTabletAction: {fileID: 8833824311323587020, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
+  OpenCloseTabletAction: {fileID: 4440401931025192087, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   NextCamera: {fileID: -5395705941810596267, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   PrevCamera: {fileID: 6919730583327898350, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
 --- !u!1001 &1703733976

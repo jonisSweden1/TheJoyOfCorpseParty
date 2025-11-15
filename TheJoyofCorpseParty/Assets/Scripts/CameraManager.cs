@@ -57,6 +57,7 @@ public class CameraManager : MonoBehaviour
         if(mainCamera != null && monitorCameras != null)
         {
             mainCamera.enabled = false;
+            mainCamera.GetComponent<AudioListener>().enabled = false;
             EnableMonitorCamera(currentMonitorCam);
             onOpenCam = true;
         }
@@ -67,6 +68,7 @@ public class CameraManager : MonoBehaviour
         if (mainCamera != null && monitorCameras != null)
         {
             mainCamera.enabled = true;
+            mainCamera.GetComponent<AudioListener>().enabled = true;
             DisableMonitorCamera(currentMonitorCam);
             onOpenCam = true;
         }
@@ -76,10 +78,12 @@ public class CameraManager : MonoBehaviour
     {
         monitorCamCountIndex++;
 
-        if(monitorCamCountIndex > monitorCameras.Length)
+        if(monitorCamCountIndex > monitorCameras.Length - 1)
         {
             monitorCamCountIndex = 0;
         }
+
+        currentMonitorCam = monitorCameras[monitorCamCountIndex];
 
         EnableMonitorCamera(monitorCameras[monitorCamCountIndex]);
 
@@ -90,10 +94,12 @@ public class CameraManager : MonoBehaviour
     {
         monitorCamCountIndex--;
 
-        if(monitorCamCountIndex < 0)
+        if(monitorCamCountIndex < 1)
         {
             monitorCamCountIndex = monitorCameras.Length - 1;
         }
+
+        currentMonitorCam = monitorCameras[monitorCamCountIndex];
 
         EnableMonitorCamera(monitorCameras[monitorCamCountIndex]);
 
