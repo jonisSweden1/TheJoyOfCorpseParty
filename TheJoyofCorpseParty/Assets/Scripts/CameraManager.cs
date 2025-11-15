@@ -103,12 +103,14 @@ public class CameraManager : MonoBehaviour
     void EnableMonitorCamera(CamInfo cam)
     {
         cam.cam.enabled = true;
+        cam.cam.GetComponent<AudioListener>().enabled = true;
         cam.light.enabled = true;
     }
 
     void DisableMonitorCamera(CamInfo cam)
     {
         cam.cam.enabled = false;
+        cam.cam.GetComponent<AudioListener>().enabled = false;
         cam.light.enabled = false;
     }
 
