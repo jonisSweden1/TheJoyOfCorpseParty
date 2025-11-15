@@ -29,7 +29,7 @@ public class HidingStateManager : MonoBehaviour
     public AnimationCurve curveToShowCamPos { get { return curveToHideCamPos; } }
 
     [HideInInspector]
-    public CamInfoData camInfo;
+    public CamHideInfoData camInfo;
 
     private void Awake()
     {

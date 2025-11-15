@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 
-public class CamInfo : MonoBehaviour
+public class CamHideInfo : MonoBehaviour
 {
     [SerializeField]
-    private CamInfoData _data;
+    private CamHideInfoData _data;
 
-    public CamInfoData Data {  get { return _data; } }
+    public CamHideInfoData Data {  get { return _data; } }
 
     private void Start()
     {
@@ -15,7 +15,7 @@ public class CamInfo : MonoBehaviour
 }
 
 [Serializable]
-public class CamInfoData
+public class CamHideInfoData
 {
     [Range(0, 179)]
     public float fieldOfView = 60;

@@ -16,13 +16,13 @@ public class PlayerHidingHandler : MonoBehaviour
     private Material originalMaterial;
 
     private bool isHidingSpotFound;
-    private CamInfoData _cameraInfo;
+    private CamHideInfoData _cameraInfo;
     private GameObject _hideSpot;
 
     private bool isHidingSpotTook = false;
     private bool isHidingSpotShown = false;
 
-    public bool FindHidingSpot(out CamInfoData camInfoData)
+    public bool FindHidingSpot(out CamHideInfoData camInfoData)
     {
         if(isHidingSpotFound)
         {
@@ -56,7 +56,7 @@ public class PlayerHidingHandler : MonoBehaviour
             if (hit.collider.tag == "HideSpot")
             {
                 //Debug.Log("Hiding spot Found!");
-                CamInfo cameraInfoCam = hit.collider.transform.GetChild(0).gameObject.GetComponent<CamInfo>();
+                CamHideInfo cameraInfoCam = hit.collider.transform.GetChild(0).gameObject.GetComponent<CamHideInfo>();
                 _cameraInfo = cameraInfoCam.Data;
                 _hideSpot = hit.collider.gameObject;
 

@@ -9,7 +9,7 @@ public class HidingIdleState : HidingBaseState
         Debug.Log(handler);
         if (handler != null)
         {
-            CamInfoData camData = null;
+            CamHideInfoData camData = null;
 
             if (handler.FindHidingSpot(out camData))
             {
