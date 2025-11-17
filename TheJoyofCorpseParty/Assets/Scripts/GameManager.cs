@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -32,7 +31,14 @@ public class GameManager : MonoBehaviour
 [Serializable]
 public class Goal
 {
-    public int goalStep;
     public string name;
-    public string description;
+
+    public Objective[] objectives;
+}
+
+[Serializable]
+public class Objective
+{
+    public string name;
+    public string instruction;
 }

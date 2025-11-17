@@ -74999,6 +74999,7 @@ MonoBehaviour:
   m_Script: {fileID: 1361723897}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &751240593
 Transform:
   m_ObjectHideFlags: 19
@@ -94592,6 +94593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efefc9f8c63f8294688b29d420e9a4d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goals: []
 --- !u!4 &855290715
 Transform:
   m_ObjectHideFlags: 0
@@ -151206,6 +151208,7 @@ MonoBehaviour:
   m_Script: {fileID: 1603274651}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1277024530
 Transform:
   m_ObjectHideFlags: 19
