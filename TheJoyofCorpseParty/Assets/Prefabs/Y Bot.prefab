@@ -705,6 +705,8 @@ MonoBehaviour:
   m_MinTimeToRoamToNextLocation: 0.5
   m_MaxTimeToRoamToNextLocation: 5
   m_ExposureTime: 1.1
+  isPlayerDetected: 0
+  isSoundDetected: 0
 --- !u!65 &422969641722896615
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1014,5 +1016,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d80afa7b936d04ba3da6a20419742d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hearingRange: 30
+  _hearingRange: 15
   _headTransform: {fileID: 421540534323454632}

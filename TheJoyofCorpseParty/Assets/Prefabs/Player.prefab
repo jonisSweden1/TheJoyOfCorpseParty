@@ -419,10 +419,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enable: 1
-  _walkAmplitude: 0.0036
-  _runningAmplitude: 0.015
-  _walkFrequency: 7.4
-  _runningFrequency: 15.7
+  _walkAmplitude: 0.0025
+  _runningAmplitude: 0.0078
+  _walkFrequency: 10
+  _runningFrequency: 22
   _camera: {fileID: 0}
   _cameraHolder: {fileID: 0}
 --- !u!1 &5766111986500762134

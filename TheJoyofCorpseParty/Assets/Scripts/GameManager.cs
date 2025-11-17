@@ -1,7 +1,12 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private Goal[] goals;
+
     public static GameManager instance { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,4 +27,12 @@ public class GameManager : MonoBehaviour
     {
         
     }
+}
+
+[Serializable]
+public class Goal
+{
+    public int goalStep;
+    public string name;
+    public string description;
 }
