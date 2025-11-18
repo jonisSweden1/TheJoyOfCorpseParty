@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GoalManager : MonoBehaviour
 {
     [SerializeField]
     private Goal[] goals;
 
-    public static GameManager instance { get; private set; }
+    public static GoalManager instance { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -40,5 +40,7 @@ public class Goal
 public class Objective
 {
     public string name;
+
+    [TextArea]
     public string instruction;
 }
