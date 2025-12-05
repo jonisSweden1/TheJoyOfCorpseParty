@@ -94,7 +94,7 @@ public class CameraManager : MonoBehaviour
     {
         monitorCamCountIndex--;
 
-        if(monitorCamCountIndex < 1)
+        if(monitorCamCountIndex < 0)
         {
             monitorCamCountIndex = monitorCameras.Length - 1;
         }
