@@ -12256,7 +12256,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 8ba92e2dd7f884a0f88b98fa2d235fe7, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 3cf10b304e37e6f458487ab7b620e505, type: 2}
 --- !u!4 &1478944281
 Transform:
   m_ObjectHideFlags: 0
@@ -12800,6 +12800,7 @@ GameObject:
   - component: {fileID: 1790873200}
   - component: {fileID: 1790873203}
   - component: {fileID: 1790873202}
+  - component: {fileID: 1790873204}
   m_Layer: 0
   m_Name: Rain
   m_TagString: Untagged
@@ -12877,7 +12878,7 @@ VisualEffect:
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
-  m_ResetSeedOnPlay: 1
+  m_ResetSeedOnPlay: 0
   m_AllowInstancing: 1
   m_ResourceVersion: 1
   m_PropertySheet:
@@ -12950,6 +12951,25 @@ MonoBehaviour:
   m_Bindings:
   - {fileID: 1790873202}
   m_VisualEffect: {fileID: 1790873201}
+--- !u!320 &1790873204
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790873198}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 0a42e9f4fbf3ae74b9e9be41bf1bfef4, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 1
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 1326544171446197632, guid: 0a42e9f4fbf3ae74b9e9be41bf1bfef4, type: 2}
+    value: {fileID: 1790873201}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1837239309
 GameObject:
   m_ObjectHideFlags: 0

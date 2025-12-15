@@ -70,7 +70,7 @@ public class CameraManager : MonoBehaviour
             mainCamera.enabled = true;
             mainCamera.GetComponent<AudioListener>().enabled = true;
             DisableMonitorCamera(currentMonitorCam);
-            onOpenCam = true;
+            onOpenCam = false;
         }
     }
 
