@@ -6,6 +6,8 @@ public class PlayerSecurityRoomController : MonoBehaviour
     [SerializeField]
     private InputActionReference navigationController;
 
+    private InputActionReference mouseLookInput;
+
     [SerializeField]
     private float speedInNavigation = 0.0f;
 
@@ -68,6 +70,15 @@ public class PlayerSecurityRoomController : MonoBehaviour
 
                 transform.localRotation = rotation;
             }
+        }
+
+        Vector2 mousePositionVector2 = mouseLookInput.action.ReadValue<Vector2>();
+        Vector3 mousePosition = new Vector3(mousePositionVector2.x, mousePositionVector2.y, 0);
+
+        RaycastHit hit;
+        if(Physics.Raycast(Camera.main.ScreenPointToRay(mousePosition), out hit))
+        {
+
         }
     }
 }
