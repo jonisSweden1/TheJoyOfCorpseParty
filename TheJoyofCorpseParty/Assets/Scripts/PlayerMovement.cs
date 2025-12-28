@@ -66,12 +66,19 @@ public class PlayerMovement : MonoBehaviour
     {
         m_CrouchKey.action.performed += Crouch_performed;
         m_CrouchKey.action.canceled += Crouch_canceled;
+        PlayerDeathManager.m_OnDeath += DisablePlayer;
     }
 
     private void OnDisable()
     {
         m_CrouchKey.action.performed -= Crouch_performed;
         m_CrouchKey.action.canceled -= Crouch_canceled;
+        PlayerDeathManager.m_OnDeath -= DisablePlayer;
+    }
+
+    public void DisablePlayer()
+    {
+        this.gameObject.SetActive(false);
     }
 
     private void Crouch_canceled(InputAction.CallbackContext obj)

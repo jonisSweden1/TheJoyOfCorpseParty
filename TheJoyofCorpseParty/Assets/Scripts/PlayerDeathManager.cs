@@ -13,31 +13,9 @@ public class PlayerDeathManager : MonoBehaviour
         m_IsAlive = true;
     }
 
-    private void OnEnable()
-    {
-        m_OnDeath += ShowGameOverScreen;
-        m_OnDeath += DisablePlayer;
-    }
-
-    private void OnDisable()
-    {
-        m_OnDeath -= ShowGameOverScreen;
-        m_OnDeath -= DisablePlayer;
-    }
-
     public void KillPlayer()
     {
         m_OnDeath?.Invoke();
         m_IsAlive=false;
-    }
-
-    void ShowGameOverScreen()
-    {
-        UIManager.instance.ForceMenu(1);
-    }
-
-    void DisablePlayer()
-    {
-        gameObject.SetActive(false);
     }
 }
