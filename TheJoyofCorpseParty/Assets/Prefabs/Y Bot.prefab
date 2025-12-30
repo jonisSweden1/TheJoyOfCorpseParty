@@ -1016,5 +1016,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d80afa7b936d04ba3da6a20419742d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hearingRange: 15
+  _hearingRange: 6
   _headTransform: {fileID: 421540534323454632}
