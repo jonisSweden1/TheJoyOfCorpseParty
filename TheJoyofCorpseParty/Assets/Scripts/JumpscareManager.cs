@@ -1,19 +1,23 @@
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class JumpscareManager : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip _jumpscareAudioClip;
-
-    private AudioSource _jumpscareAudioSource;
-
-    [SerializeField]
     private GameObject _sourceToAppear;
+
+    private PlayableDirector _jumpscareTimeline;
+
+    private bool _hasCatchedPlayer = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        _jumpscareAudioSource = GetComponent<AudioSource>();
+        if(_sourceToAppear != null)
+        {
+            _jumpscareTimeline = _sourceToAppear.GetComponent<PlayableDirector>();
+        }
     }
 
     private void OnEnable()
@@ -28,7 +32,9 @@ public class JumpscareManager : MonoBehaviour
 
     private void Play()
     {
-        _jumpscareAudioSource.PlayOneShot(_jumpscareAudioClip, 1.5f);
+        _sourceToAppear.SetActive(true);
+        _jumpscareTimeline.Play();
+        _hasCatchedPlayer = true;
     }
 
     private void OnDisable()
@@ -38,6 +44,12 @@ public class JumpscareManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if(_hasCatchedPlayer)
+        {
+            if (_jumpscareTimeline.state != PlayState.Playing)
+            {
+                _sourceToAppear.SetActive(false);
+            }
+        }
     }
 }

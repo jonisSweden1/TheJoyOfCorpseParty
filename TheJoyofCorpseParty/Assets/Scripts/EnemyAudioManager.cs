@@ -83,10 +83,6 @@ public class EnemyAudioManager : MonoBehaviour
                     _audioSource2.PlayOneShot(_startMachineSound);
                     _hasAwaked = true;
                 }
-                else
-                {
-                    CheckAudioSourceAvailable();
-                }
             }
         }
 
@@ -113,6 +109,14 @@ public class EnemyAudioManager : MonoBehaviour
                     _hasChasePlayed = false;
                 }
             }
+        }
+    }
+
+    private void Update()
+    {
+        if(_hasAwaked)
+        {
+            CheckAudioSourceAvailable();
         }
     }
 
