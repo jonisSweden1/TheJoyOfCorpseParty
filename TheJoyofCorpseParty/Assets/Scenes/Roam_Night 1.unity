@@ -76976,7 +76976,6 @@ MonoBehaviour:
   m_Script: {fileID: 1361723897}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &751240593
 Transform:
   m_ObjectHideFlags: 19
@@ -119011,6 +119010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983663949}
   - component: {fileID: 983663948}
+  - component: {fileID: 983663950}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -119046,6 +119046,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 668522818}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &983663950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983663947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd6e40324b01b64c86fa64f99c15930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &984026736
 GameObject:
   m_ObjectHideFlags: 0
@@ -153475,7 +153487,6 @@ MonoBehaviour:
   m_Script: {fileID: 1603274651}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1277024530
 Transform:
   m_ObjectHideFlags: 19
@@ -194573,14 +194584,26 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 983663947}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
+        - m_Target: {fileID: 983663948}
+          m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+          m_MethodName: SetMessage
+          m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Night1
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 983663948}
+          m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+          m_MethodName: LoadScene
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 4
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -236891,6 +236914,8 @@ PlayableDirector:
     value: {fileID: 163157648}
   - key: {fileID: -3591583515852812287, guid: 1dea55e79bb6bac41a68795465c4704a, type: 2}
     value: {fileID: 1932974370}
+  - key: {fileID: -7311014507692349190, guid: 1dea55e79bb6bac41a68795465c4704a, type: 2}
+    value: {fileID: 1608262893}
   m_ExposedReferences:
     m_References: []
 --- !u!82 &1932974370
