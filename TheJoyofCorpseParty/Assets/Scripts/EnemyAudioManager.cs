@@ -9,6 +9,7 @@ public class EnemyAudioManager : MonoBehaviour
     private NavMeshAgent _agent;
 
     [SerializeField]
+    [Tooltip("The first audio source is for footsteps and voice, the other audio source is for engine ambience")]
     private AudioSource _audioSource2;
 
     [Header("Choose between state or behavior graph")]

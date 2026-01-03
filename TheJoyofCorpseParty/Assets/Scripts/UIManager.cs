@@ -53,7 +53,8 @@ public class UIManager : MonoBehaviour
             _previousMenuIndex = _currentMenuIndex;
             _currentMenuIndex = index;
 
-            m_Menus[_previousMenuIndex].SetActive(false);
+            if(_previousMenuIndex > -1)
+                m_Menus[_previousMenuIndex].SetActive(false);
             m_Menus[index].SetActive(true);
         }
     }
@@ -91,14 +92,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void CloseMenu()
+    {
+        _previousMenuIndex = _currentMenuIndex;
+        m_Menus[_currentMenuIndex].SetActive(false);
+        _currentMenuIndex = -1;
+    }
+
     public void ForceMenu(int index)
     {
         Debug.Log("Force menu");
 
         if(_currentMenuIndex > -1)
-        {
             m_Menus[_currentMenuIndex].SetActive(false);
-        }
         m_Menus[index].SetActive(true);
     }
 }
