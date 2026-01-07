@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UINavigationManager : MonoBehaviour
 {
@@ -25,7 +26,17 @@ public class UINavigationManager : MonoBehaviour
             {
                 if (i == _currentScreenIndex)
                 {
+                    var checkChangeDetection = _uiNavigationScreens[i].GetComponent<ICheckChangeDetection>();
+                    if (checkChangeDetection != null)
+                    {
+                        if (checkChangeDetection.HasUnsavedChanges())
+                        {
+                            //UIManager.instance.ShowPopUp("")
+                            return;
+                        }
+                    }
                     _uiNavigationScreens[i].SetActive(true);
+
                 }
                 else
                 {

@@ -86,8 +86,3 @@ public class NightToShow : MonoBehaviour
         }
     }
 }
-
-public enum NightDataEnum
-{
-    None, Night1, Night2, Night3, Night4, Night5
-}
