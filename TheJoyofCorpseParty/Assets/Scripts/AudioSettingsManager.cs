@@ -9,6 +9,9 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
     private AudioSettingModel[] audioSettings;
 
     [SerializeField]
+    private AudioMixer audioMixer;
+
+    [SerializeField]
     private Button applyButton;
 
     private bool hasUnsavedChanges = false;
@@ -43,7 +46,7 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
             if (setting.volumeSlider == slider)
             {
                 float volume = slider.value;
-                setting.mixerGroup.audioMixer.SetFloat(setting.volumeName, Mathf.Log10(volume) * 20);
+                audioMixer.SetFloat(setting.volumeName, Mathf.Log10(volume) * 20);
                 break;
             }
         }
@@ -59,7 +62,7 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
         foreach (AudioSettingModel setting in audioSettings)
         {
             float volume;
-            if (setting.mixerGroup.audioMixer.GetFloat(setting.volumeName, out volume))
+            if (audioMixer.GetFloat(setting.volumeName, out volume))
             {
                 setting.volumeSlider.value = Mathf.Pow(10, volume / 20);
             }
@@ -80,13 +83,13 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
 
     private void CalculateDifferencesWithSaveVolumes()
     {
+        /*
         foreach (AudioSettingModel setting in audioSettings)
         {
-            float currentVolume;
+            float currentVolume = setting.volumeSlider.value;
             float savedVolume;
-            if (AudioManager.Instance.)
+            if ()
             {
-                savedVolume = PlayerPrefs.GetFloat(setting.volumeName);
                 if (Mathf.Abs(currentVolume - savedVolume) > 0.01f)
                 {
                     applyButton.interactable = true;
@@ -95,6 +98,7 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
                 }
             }
         }
+        */
     }
 
     public void SaveVolumes()
@@ -102,7 +106,7 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
         foreach (AudioSettingModel setting in audioSettings)
         {
             float volume;
-            if (setting.mixerGroup.audioMixer.GetFloat(setting.volumeName, out volume))
+            if (audioMixer.GetFloat(setting.volumeName, out volume))
             {
                 PlayerPrefs.SetFloat(setting.volumeName, volume);
             }
