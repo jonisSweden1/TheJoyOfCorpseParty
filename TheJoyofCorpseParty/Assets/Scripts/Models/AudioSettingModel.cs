@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 [Serializable]
 public class AudioSettingModel
 {
-    public AudioMixerGroup mixerGroup;
+    public float volume;
     public Slider volumeSlider;
     public string volumeName;
 }

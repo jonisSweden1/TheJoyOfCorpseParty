@@ -66,14 +66,25 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
         }
     }
 
+    private void LoadVolumes()
+    {
+        if(!AudioManager.Instance.TryLoadVolumes(out audioSettings))
+        {
+
+        }
+        else
+        {
+
+        }
+    }
+
     private void CalculateDifferencesWithSaveVolumes()
     {
         foreach (AudioSettingModel setting in audioSettings)
         {
             float currentVolume;
             float savedVolume;
-            if (setting.mixerGroup.audioMixer.GetFloat(setting.volumeName, out currentVolume) &&
-                PlayerPrefs.HasKey(setting.volumeName))
+            if (AudioManager.Instance.)
             {
                 savedVolume = PlayerPrefs.GetFloat(setting.volumeName);
                 if (Mathf.Abs(currentVolume - savedVolume) > 0.01f)

@@ -39,4 +39,18 @@ public class SaveLoadManager : MonoBehaviour
         T loadedObject = JsonUtility.FromJson<T>(jsonString);
         return loadedObject;
     }
+
+    public bool CheckIfFileExists<T>(string path)
+    {
+        if(File.Exists(path))
+            return false;
+
+        string jsonString = File.ReadAllText(path, Encoding.UTF8);
+        T objectToCheck = JsonUtility.FromJson<T>(jsonString);
+
+        if (objectToCheck == null)
+            return false;
+
+        return true;
+    }
 }
