@@ -69,36 +69,20 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
         }
     }
 
-    private void LoadVolumes()
-    {
-        if(!AudioManager.Instance.TryLoadVolumes(out audioSettings))
-        {
-
-        }
-        else
-        {
-
-        }
-    }
-
     private void CalculateDifferencesWithSaveVolumes()
     {
-        /*
         foreach (AudioSettingModel setting in audioSettings)
         {
             float currentVolume = setting.volumeSlider.value;
-            float savedVolume;
-            if ()
+            float savedVolume = audioMixer.GetFloat(setting.volumeName, out savedVolume) ? Mathf.Pow(10, savedVolume / 20) : 0f;
+
+            if (Mathf.Abs(currentVolume - savedVolume) != 0.00f)
             {
-                if (Mathf.Abs(currentVolume - savedVolume) > 0.01f)
-                {
-                    applyButton.interactable = true;
-                    hasUnsavedChanges = true;
-                    return;
-                }
+                applyButton.interactable = true;
+                hasUnsavedChanges = true;
+                return;
             }
         }
-        */
     }
 
     public void SaveVolumes()

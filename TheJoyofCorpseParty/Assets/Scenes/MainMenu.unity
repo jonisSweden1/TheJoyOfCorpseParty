@@ -2796,7 +2796,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d567dd1f121da44db2db2e8366c0189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSettings: []
+  audioSettings:
+  - volume: 0
+    volumeSlider: {fileID: 3683236313886854516}
+    volumeName: MasterVolume
+  - volume: 0
+    volumeSlider: {fileID: 3683236313886854515}
+    volumeName: MusicVolume
+  - volume: 0
+    volumeSlider: {fileID: 3683236313886854514}
+    volumeName: AmbienceVolume
+  - volume: 0
+    volumeSlider: {fileID: 3683236313886854513}
+    volumeName: SFXVolume
+  - volume: 0
+    volumeSlider: {fileID: 3683236313886854512}
+    volumeName: CutsceneVolume
+  audioMixer: {fileID: 24100000, guid: d95706133cd50e441b3df9ec661558df, type: 2}
 --- !u!4 &553587132
 Transform:
   m_ObjectHideFlags: 0
@@ -13356,6 +13372,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3618950720644850754, guid: 32b988256ce4e184d91171df81130c49, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3726946626312689112, guid: 32b988256ce4e184d91171df81130c49, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13472,6 +13492,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6806668629391244440, guid: 32b988256ce4e184d91171df81130c49, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7188967978312050537, guid: 32b988256ce4e184d91171df81130c49, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -13513,6 +13537,61 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32b988256ce4e184d91171df81130c49, type: 3}
+--- !u!114 &3683236313886854512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8882589504627205978, guid: 32b988256ce4e184d91171df81130c49, type: 3}
+  m_PrefabInstance: {fileID: 3683236313886854511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3683236313886854513 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2832954560442707447, guid: 32b988256ce4e184d91171df81130c49, type: 3}
+  m_PrefabInstance: {fileID: 3683236313886854511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3683236313886854514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4525708323197462727, guid: 32b988256ce4e184d91171df81130c49, type: 3}
+  m_PrefabInstance: {fileID: 3683236313886854511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3683236313886854515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8374230985834547747, guid: 32b988256ce4e184d91171df81130c49, type: 3}
+  m_PrefabInstance: {fileID: 3683236313886854511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3683236313886854516 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4596198998278946797, guid: 32b988256ce4e184d91171df81130c49, type: 3}
+  m_PrefabInstance: {fileID: 3683236313886854511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

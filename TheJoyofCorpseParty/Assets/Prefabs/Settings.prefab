@@ -3316,21 +3316,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSettings:
-  - mixerGroup: {fileID: 24300002, guid: d95706133cd50e441b3df9ec661558df, type: 2}
+  - volume: 0
     volumeSlider: {fileID: 4596198998278946797}
     volumeName: MasterVolume
-  - mixerGroup: {fileID: 465956782526643355, guid: d95706133cd50e441b3df9ec661558df, type: 2}
+  - volume: 0
     volumeSlider: {fileID: 8374230985834547747}
     volumeName: MusicVolume
-  - mixerGroup: {fileID: -5822996287625513169, guid: d95706133cd50e441b3df9ec661558df, type: 2}
+  - volume: 0
     volumeSlider: {fileID: 4525708323197462727}
     volumeName: AmbienceVolume
-  - mixerGroup: {fileID: 6016252546999850634, guid: d95706133cd50e441b3df9ec661558df, type: 2}
+  - volume: 0
     volumeSlider: {fileID: 2832954560442707447}
     volumeName: SFXVolume
-  - mixerGroup: {fileID: 9010648861415498592, guid: d95706133cd50e441b3df9ec661558df, type: 2}
+  - volume: 0
     volumeSlider: {fileID: 8882589504627205978}
     volumeName: CutsceneVolume
+  audioMixer: {fileID: 24100000, guid: d95706133cd50e441b3df9ec661558df, type: 2}
   applyButton: {fileID: 229673098429601679}
 --- !u!1 &6893194498853743653
 GameObject:
