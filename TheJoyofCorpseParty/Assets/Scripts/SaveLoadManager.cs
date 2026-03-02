@@ -25,6 +25,9 @@ public class SaveLoadManager : MonoBehaviour
     public void Save<T>(T objectToSave, string destination)
     {
         string jsonString = JsonUtility.ToJson(objectToSave, true);
+
+        Debug.Log(jsonString);
+
         File.WriteAllText(destination, jsonString, Encoding.UTF8);
     }
 
@@ -42,14 +45,18 @@ public class SaveLoadManager : MonoBehaviour
 
     public bool CheckIfFileExists<T>(string path)
     {
-        if(File.Exists(path))
+        if(!File.Exists(path))
             return false;
+
+        Debug.Log("File found at: " + path);
 
         string jsonString = File.ReadAllText(path, Encoding.UTF8);
         T objectToCheck = JsonUtility.FromJson<T>(jsonString);
 
         if (objectToCheck == null)
             return false;
+
+        Debug.Log("File Object is Json");
 
         return true;
     }

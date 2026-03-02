@@ -64,11 +64,13 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
             float volume;
             if (audioMixer.GetFloat(setting.volumeName, out volume))
             {
+                Debug.Log("Got float from mixer: " + volume);
                 setting.volumeSlider.value = Mathf.Pow(10, volume / 20);
             }
         }
     }
 
+    // Calculate the differences between the current slider values and the saved volumes in the AudioMixer. If there are any differences, enable the apply button and set hasUnsavedChanges to true.
     private void CalculateDifferencesWithSaveVolumes()
     {
         foreach (AudioSettingModel setting in audioSettings)
@@ -76,8 +78,10 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
             float currentVolume = setting.volumeSlider.value;
             float savedVolume = audioMixer.GetFloat(setting.volumeName, out savedVolume) ? Mathf.Pow(10, savedVolume / 20) : 0f;
 
-            if (Mathf.Abs(currentVolume - savedVolume) != 0.00f)
+            if (currentVolume - savedVolume != 0.00f)
             {
+                Debug.Log($"There is a difference in volume, from where the saved volume ({savedVolume}) and the current volume ({currentVolume}) has difference in {currentVolume - savedVolume}");
+
                 applyButton.interactable = true;
                 hasUnsavedChanges = true;
                 return;
@@ -87,12 +91,14 @@ public class AudioSettingsManager : MonoBehaviour, ICheckChangeDetection
 
     public void SaveVolumes()
     {
+        AudioManager.Instance.SaveVolumes();
+
         foreach (AudioSettingModel setting in audioSettings)
         {
             float volume;
             if (audioMixer.GetFloat(setting.volumeName, out volume))
             {
-                PlayerPrefs.SetFloat(setting.volumeName, volume);
+                
             }
         }
         applyButton.interactable = false;

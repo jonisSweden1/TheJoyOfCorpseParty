@@ -23,8 +23,10 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        if(TryLoadVolumes(out audioSettings))
+        if (SaveLoadManager.Instance.CheckIfFileExists<AudioSettingModel>(Application.persistentDataPath + "/audioSettings.json"))
         {
+            audioSettings = LoadVolumes();
+
             foreach (var volume in audioSettings)
             {
                 audioMixer.SetFloat(volume.volumeName, volume.volume);
@@ -35,26 +37,13 @@ public class AudioManager : MonoBehaviour
     public void SaveVolumes()
     {
         SaveLoadManager.Instance.Save(audioSettings, Application.persistentDataPath + "/audioSettings.json");
-    }
 
-    public bool TryLoadVolumes(out AudioSettingModel[] audioSettingsData)
-    {
-        if(!SaveLoadManager.Instance.CheckIfFileExists<AudioSettingModel>(Application.persistentDataPath + "/audioSettings.json"))
-        {
-            audioSettingsData = null;
-            return false;
-        }
-
-        AudioSettingModel[] loadedSettings = SaveLoadManager.Instance.Load<AudioSettingModel[]>(Application.persistentDataPath + "/audioSettings.json");
-        audioSettings = loadedSettings;
-        audioSettingsData = audioSettings;
-        return true;
+        Debug.Log("Save volumes");
     }
 
     public AudioSettingModel[] LoadVolumes()
     {
         AudioSettingModel[] loadedSettings = SaveLoadManager.Instance.Load<AudioSettingModel[]>(Application.persistentDataPath + "/audioSettings.json");
-        audioSettings = loadedSettings;
-        return audioSettings;
+        return loadedSettings;
     }
 }
