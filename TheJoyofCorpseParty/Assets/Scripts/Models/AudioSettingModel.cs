@@ -10,3 +10,9 @@ public class AudioSettingModel
     public Slider volumeSlider;
     public string volumeName;
 }
+
+public class AudioSettingDTO
+{
+    public float volume;
+    public string volumeName;
+}
