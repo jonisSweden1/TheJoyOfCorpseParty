@@ -6,6 +6,8 @@ public class EnemyChasePlayerState : EnemyBaseState
     public override void EnterState(EnemyStateManager stateManager)
     {
         //Debug.Log("CHASE!!!");
+
+        AmbienceSoundManager.Instance.PlayChaseMusic();
     }
 
     public override void ExitState(EnemyStateManager stateManager)

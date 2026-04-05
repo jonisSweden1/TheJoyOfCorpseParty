@@ -252,6 +252,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f19ffa9a7f873f348b9df71a1068895a, type: 3}
   - {fileID: 8300000, guid: 1ebf20e1170cb89479d98f6192c1805f, type: 3}
   - {fileID: 8300000, guid: a16ca4472b02377478dd8ef02f678c3f, type: 3}
+  _chaseMusicClips:
+  - {fileID: 8300000, guid: 1db00e88a9e79204d9770819360ed988, type: 3}
 --- !u!4 &690851
 Transform:
   m_ObjectHideFlags: 0

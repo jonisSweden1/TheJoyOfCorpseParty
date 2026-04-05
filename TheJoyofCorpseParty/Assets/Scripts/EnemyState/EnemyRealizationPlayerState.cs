@@ -6,6 +6,11 @@ public class EnemyRealizationPlayerState : EnemyBaseState
     private float savedTime = 0;
     public override void EnterState(EnemyStateManager stateManager)
     {
+        if(!AmbienceSoundManager.Instance.CheckIfAmbienceSoundIsPlaying())
+        {
+            AmbienceSoundManager.Instance.PlayAmbience();
+        }
+
         if(savedTime > 0)
         {
             time = savedTime;

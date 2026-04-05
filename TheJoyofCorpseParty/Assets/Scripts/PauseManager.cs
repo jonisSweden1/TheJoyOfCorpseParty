@@ -47,6 +47,8 @@ public class PauseManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        AmbienceSoundManager.Instance.PauseMusic();
+
         isPaused = true;
     }
 
@@ -57,6 +59,8 @@ public class PauseManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        AmbienceSoundManager.Instance.ResumeMusic();
 
         isPaused = false;
     }

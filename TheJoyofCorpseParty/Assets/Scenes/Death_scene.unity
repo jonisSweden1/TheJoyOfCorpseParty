@@ -813,8 +813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd46d354af38d1847ad38219431ca023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nightOneData: {fileID: 0}
-  nightTwoData: {fileID: 0}
+  nightOneData: {fileID: 11400000, guid: bd16937723d29e04e97bfc29b118c0da, type: 2}
+  nightTwoData: {fileID: 11400000, guid: df1cfd22468160440a50335f9c098774, type: 2}
 --- !u!1 &1131198720
 GameObject:
   m_ObjectHideFlags: 0
