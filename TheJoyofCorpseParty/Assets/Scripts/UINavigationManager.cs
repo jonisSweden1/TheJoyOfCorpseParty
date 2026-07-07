@@ -27,7 +27,6 @@ public class UINavigationManager : MonoBehaviour
                 if (i == _currentScreenIndex)
                 {
                     _uiNavigationScreens[i].SetActive(true);
-
                 }
                 else
                 {

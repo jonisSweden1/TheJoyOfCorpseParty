@@ -109,9 +109,9 @@ RectTransform:
   - {fileID: 3495418798841485866}
   m_Father: {fileID: 5723487535734235812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 240, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3773360980271531621
@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 172950580834631931}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 2
@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 172950580834631931}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 2
@@ -1768,9 +1768,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 172950580834631931}
-        m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
-        m_MethodName: SaveVolumes
+      - m_Target: {fileID: 8522024144075254638}
+        m_TargetAssemblyTypeName: AudioSettings, Assembly-CSharp
+        m_MethodName: ApplyChanges
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3264,7 +3264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6649920411724349261}
-  - component: {fileID: 172950580834631931}
+  - component: {fileID: 8522024144075254638}
   m_Layer: 5
   m_Name: Audio_settingsMenu
   m_TagString: Untagged
@@ -3303,7 +3303,7 @@ RectTransform:
   m_AnchoredPosition: {x: -73.048004, y: -68}
   m_SizeDelta: {x: 900, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &172950580834631931
+--- !u!114 &8522024144075254638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3312,26 +3312,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 6806668629391244440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0abd24f0eb79051499748de157f99b3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a74ecdf862b4fe45a6518750709f25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSettings:
-  - volume: 0
-    volumeSlider: {fileID: 4596198998278946797}
-    volumeName: MasterVolume
-  - volume: 0
-    volumeSlider: {fileID: 8374230985834547747}
-    volumeName: MusicVolume
-  - volume: 0
-    volumeSlider: {fileID: 4525708323197462727}
-    volumeName: AmbienceVolume
-  - volume: 0
-    volumeSlider: {fileID: 2832954560442707447}
-    volumeName: SFXVolume
-  - volume: 0
-    volumeSlider: {fileID: 8882589504627205978}
-    volumeName: CutsceneVolume
   audioMixer: {fileID: 24100000, guid: d95706133cd50e441b3df9ec661558df, type: 2}
+  masterSlider: {fileID: 4596198998278946797}
+  musicSlider: {fileID: 8374230985834547747}
+  sfxSlider: {fileID: 2832954560442707447}
+  cutscenesSlider: {fileID: 8882589504627205978}
+  ambienceSlider: {fileID: 4525708323197462727}
   applyButton: {fileID: 229673098429601679}
 --- !u!1 &6893194498853743653
 GameObject:
@@ -3487,7 +3476,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 172950580834631931}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 2
@@ -3728,7 +3717,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 172950580834631931}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 2
@@ -3905,7 +3894,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 172950580834631931}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
         m_MethodName: SetVolume
         m_Mode: 2
@@ -4013,7 +4002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5598535518317489972
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4029,9 +4018,9 @@ RectTransform:
   - {fileID: 7199482917152935682}
   m_Father: {fileID: 5723487535734235812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7352063192373402809

@@ -78,7 +78,26 @@ public class UIManager : MonoBehaviour
             Debug.Log(m_PopUpMessage.transform.GetChild(0));
 
             m_PopUpMessage.transform.GetChild(0).GetComponent<TMP_Text>().text = message;
+
+            m_PopUpMessage.transform.GetChild(1).GetComponent<Button>().gameObject.SetActive(true);
             m_PopUpMessage.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(action);
+
+            m_PopUpMessage.SetActive(true);
+        }
+    }
+
+    public void ShowPopUp(string message)
+    {
+        if (m_PopUpMessage != null)
+        {
+            Debug.Log(m_PopUpMessage.transform.GetChild(0));
+
+            m_PopUpMessage.transform.GetChild(0).GetComponent<TMP_Text>().text = message;
+
+            m_PopUpMessage.transform.GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
+            m_PopUpMessage.transform.GetChild(1).GetComponent<Button>().gameObject.SetActive(false);
+
+            m_PopUpMessage.transform.GetChild(2).GetComponentInChildren<TMP_Text>().text = "Ok";
 
             m_PopUpMessage.SetActive(true);
         }
