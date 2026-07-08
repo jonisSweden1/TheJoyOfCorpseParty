@@ -9,6 +9,8 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
 
+    private bool isPausingDisabled = false;
+
     private void OnEnable()
     {
         if (pauseActionReference != null)
@@ -16,6 +18,13 @@ public class PauseManager : MonoBehaviour
             pauseActionReference.action.performed += OnPausePerformed;
             pauseActionReference.action.Enable();
         }
+
+        PlayerDeathManager.m_OnDeath += PlayerDeathManager_m_OnDeath;
+    }
+
+    private void PlayerDeathManager_m_OnDeath()
+    {
+        isPausingDisabled = true;
     }
 
     private void OnDisable()
@@ -25,10 +34,17 @@ public class PauseManager : MonoBehaviour
             pauseActionReference.action.performed -= OnPausePerformed;
             pauseActionReference.action.Disable();
         }
+
+        PlayerDeathManager.m_OnDeath -= PlayerDeathManager_m_OnDeath;
     }
 
     private void OnPausePerformed(InputAction.CallbackContext context)
     {
+        if (isPausingDisabled)
+        {
+            return;
+        }
+
         if (isPaused)
         {
             ResumeGame();

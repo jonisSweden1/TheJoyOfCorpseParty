@@ -146,7 +146,7 @@ AudioSource:
   m_GameObject: {fileID: 690848}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5822996287625513169, guid: d95706133cd50e441b3df9ec661558df, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
@@ -161111,10 +161111,6 @@ PrefabInstance:
     - target: {fileID: 3174032666872049343, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
       propertyPath: m_WarningMessage
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6240987760326508209, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
-      propertyPath: _isAwake
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6240987760326508209, guid: 8526bafc06b1ff645a831001bb310cde, type: 3}
       propertyPath: m_RootListDestinations
